@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1",
+    "question": "What is your name?",
+    "inputType": "text",
+    "validator": "[A-Za-z ]",
+    "points": 3,
+    "next": "2"
+  },
+  {
+    "id": "2",
+    "question": "What is your sex?",
+    "inputType": "select",
+    "answers": [
+      {
+        "id": "man",
+        "content": "Man",
+        "points": 4,
+        "next": "3"
+      },
+      {
+        "id": "women",
+        "content": "Woman",
+        "points": 4,
+        "next": "3"
+      },
+      {
+        "id": "special",
+        "content": "Special",
+        "points": 3,
+        "next": "4"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "question": "Life is good?",
+    "inputType": "select",
+    "answers": [
+      {
+        "id": "yes",
+        "content": "Of Course",
+        "points": 50
+      },
+      {
+        "id": "undefined",
+        "content": "Not sure",
+        "points": 10,
+        "next": "5"
+      },
+      {
+        "id": "no",
+        "content": "No",
+        "points": 1,
+        "next": "4"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "question": "Is the glass half empty or half full?",
+    "inputType": "select",
+    "answers": [
+      {
+        "id": "full",
+        "content": "Full:)",
+        "points": 40
+      },
+      {
+        "id": "2",
+        "content": "Empty:(",
+        "points": 1,
+        "next": "5"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "question": "What are you wish?",
+    "inputType": "text",
+    "points": 2
+  }
+]

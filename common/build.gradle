@@ -1,0 +1,93 @@
+apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlinx-serialization'
+
+configurations {
+    compileClasspath
+}
+
+android {
+    compileSdkVersion 28
+//    buildToolsVersion "28.0.3"
+}
+
+final frameworkName = 'CommonCode'
+
+kotlin {
+    targets {
+        android()
+
+        def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
+                              ? presets.iosArm64 : presets.iosX64
+
+        fromPreset(iOSTarget, 'ios') {
+            binaries {
+                framework(frameworkName)
+            }
+        }
+    }
+    sourceSets {
+        commonMain {
+            dependencies {
+                api 'org.jetbrains.kotlin:kotlin-stdlib-common'
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-io:$kotlinx_io_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
+                api "com.soywiz:klock:$klock_version"
+                api 'co.touchlab:stately:0.5.2'
+//                api "io.ktor:ktor-client-core:$ktor_version"
+//                api "io.ktor:ktor-client-json:$ktor_version"
+            }
+        }
+        commonTest {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-test-common"
+                implementation "org.jetbrains.kotlin:kotlin-test-annotations-common"
+            }
+        }
+        androidMain {
+            dependencies {
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-io-jvm:$kotlinx_io_version"
+                api "androidx.lifecycle:lifecycle-extensions:2.0.0"
+//                api 'org.jetbrains.kotlin:kotlin-stdlib'
+//                api "io.ktor:ktor-client-android:$ktor_version"
+//                api "io.ktor:ktor-client-json-jvm:$ktor_version"
+            }
+        }
+        iosMain {
+            dependencies {
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-native:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-io-native:$kotlinx_io_version"
+//                implementation "io.ktor:ktor-client-ios:$ktor_version"
+//                implementation "io.ktor:ktor-client-ios-iosx64:$ktor_version"
+//                implementation "io.ktor:ktor-client-json-native:$ktor_version"
+            }
+        }
+    }
+}
+
+task packForXCode(type: Sync) {
+    final File frameworkDir = new File(projectDir.parent, "ios/xcode-frameworks")
+    final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
+    final def framework = kotlin.targets.ios.binaries.getFramework(frameworkName, mode)
+
+    inputs.property "mode", mode
+    dependsOn framework.linkTask
+
+    from { framework.outputFile.parentFile }
+    into frameworkDir
+
+    doLast {
+        new File(frameworkDir, 'gradlew').with {
+            text = "#!/bin/bash" +
+                    "\nexport 'JAVA_HOME=${System.getProperty("java.home")}'" +
+                    "\ncd '${rootProject.rootDir}'" +
+                    "\n./gradlew \$@" +
+                    "\n"
+            setExecutable(true)
+        }
+    }
+}
+tasks.build.dependsOn packForXCode
+
