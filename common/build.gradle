@@ -32,7 +32,7 @@ kotlin {
                 api 'org.jetbrains.kotlin:kotlin-stdlib-common'
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlinx_coroutines_version"
                 api "org.jetbrains.kotlinx:kotlinx-io:$kotlinx_io_version"
-                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlinx_serialization_version"
                 api "com.soywiz:klock:$klock_version"
                 api 'co.touchlab:stately:0.5.2'
 //                api "io.ktor:ktor-client-core:$ktor_version"
@@ -49,6 +49,7 @@ kotlin {
             dependencies {
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
                 api "org.jetbrains.kotlinx:kotlinx-io-jvm:$kotlinx_io_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
                 api "androidx.lifecycle:lifecycle-extensions:2.0.0"
 //                api 'org.jetbrains.kotlin:kotlin-stdlib'
 //                api "io.ktor:ktor-client-android:$ktor_version"
@@ -57,8 +58,9 @@ kotlin {
         }
         iosMain {
             dependencies {
-                api "org.jetbrains.kotlinx:kotlinx-coroutines-native:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$kotlinx_coroutines_version"
                 api "org.jetbrains.kotlinx:kotlinx-io-native:$kotlinx_io_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$kotlinx_serialization_version"
 //                implementation "io.ktor:ktor-client-ios:$ktor_version"
 //                implementation "io.ktor:ktor-client-ios-iosx64:$ktor_version"
 //                implementation "io.ktor:ktor-client-json-native:$ktor_version"
