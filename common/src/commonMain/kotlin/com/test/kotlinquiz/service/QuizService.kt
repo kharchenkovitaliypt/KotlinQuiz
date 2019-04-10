@@ -48,13 +48,13 @@ class QuizService(
 
     private suspend fun getAllQuestions(): Map<ID, Question> {
         if (questions == null) {
-            questions = withContext(Dispatchers.Default) {
-                val json = assetService.open("quiz.json").use { it.readText() }
-                jsonParser.parseJson(json).jsonArray
+            // withContext(Dispatchers.Default) { // TODO Implement Default for IOS
+                val json = assetService.fetch("quiz.json")
+            questions = jsonParser.parseJson(json).jsonArray
                     .map { el -> toQuestion(el.jsonObject) }
                     .map { q ->  q.id to q }
                     .toMap()
-            }
+//            }
         }
         return questions!!
     }

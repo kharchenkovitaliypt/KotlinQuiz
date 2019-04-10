@@ -1,23 +1,20 @@
 package com.test.kotlinquiz.viewmodel
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer as AObserver
 import androidx.lifecycle.MutableLiveData as AMutableLiveData
-import androidx.lifecycle.LifecycleOwner as ALifecycleOwner
 
-actual class MutableLiveData<T> actual constructor(value: T?) : AMutableLiveData<T>() {
-
+actual open class MutableLiveData<T> actual constructor(data: T?) : AMutableLiveData<T>() {
     init {
-        value?.let(::setValue)
+        data?.let(::setValue)
     }
 
-    actual fun observe(owner: LifecycleOwner, callback: (T) -> Unit) {
-        super.observe(owner as ALifecycleOwner, callback.toObserver())
-    }
-
-    actual fun observe(callback: (T) -> Unit) {
-        super.observeForever(callback.toObserver())
-    }
+    @Suppress("UNCHECKED_CAST")
+    actual var data: T
+        get() = value as T
+        set(value) = super.setValue(value)
 }
 
-private fun <T> ((T) -> Unit).toObserver(): AObserver<T>
-    = AObserver { value -> invoke(value) }
+fun <T> MutableLiveData<T>.observe(owner: LifecycleOwner, callback: (T) -> Unit) {
+    observe(owner, AObserver { value -> callback(value) })
+}

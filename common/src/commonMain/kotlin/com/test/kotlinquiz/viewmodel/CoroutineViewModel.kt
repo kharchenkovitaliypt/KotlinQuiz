@@ -1,5 +1,6 @@
 package com.test.kotlinquiz.viewmodel
 
+import com.test.kotlinquiz.utils.mainDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -11,7 +12,7 @@ expect open class ViewModel() {
 
 open class CoroutineViewModel : ViewModel(), CoroutineScope {
 
-    private val uiContext = Dispatchers.Main
+    private val uiContext = mainDispatcher
     private val job = Job()
     // private val exceptionHandler = CoroutineExceptionHandler { _, error ->  showError(error) }
 

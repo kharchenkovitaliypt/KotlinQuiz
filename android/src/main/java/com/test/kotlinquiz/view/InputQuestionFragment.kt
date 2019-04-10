@@ -30,11 +30,13 @@ class InputQuestionFragment : Fragment() {
     ): View = container!!.inflate(R.layout.fragment_input_question)
 
     fun validateAndGetAnswer(): String? {
-        val answer = (view!! as EditText).text.toString()
+        val editText = (view!! as EditText)
+        val answer = editText.text.toString()
 
         question.validator // TODO implement
+
         if (answer.isEmpty()) {
-            context?.showMessage("Please input something.")
+            editText.error = "Please input something."
             return null
         }
         return answer

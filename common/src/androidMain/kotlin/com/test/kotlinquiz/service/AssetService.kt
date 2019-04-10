@@ -7,7 +7,9 @@ import kotlinx.io.streams.asInput
 actual class AssetService(
     private val assetManager: AssetManager
 ) {
-    actual suspend fun open(path: String): Input {
-        return assetManager.open(path).asInput()
+    actual suspend fun fetch(name: String): String {
+        return assetManager.open(name)
+            .bufferedReader()
+            .use { it.readText() }
     }
 }

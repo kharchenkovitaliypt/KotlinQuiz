@@ -1,15 +1,10 @@
 package com.test.kotlinquiz.view
 
-import android.content.Context
 import android.content.res.AssetManager
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -19,7 +14,9 @@ import com.test.kotlinquiz.data.OptQuestion
 import com.test.kotlinquiz.data.Question
 import com.test.kotlinquiz.service.AssetService
 import com.test.kotlinquiz.service.QuizService
+import com.test.kotlinquiz.viewmodel.QuestionState
 import com.test.kotlinquiz.viewmodel.QuizViewModel
+import com.test.kotlinquiz.viewmodel.observe
 import kotlinx.android.synthetic.main.activity_quiz.view.*
 
 class QuizActivity : AppCompatActivity() {
@@ -35,15 +32,14 @@ class QuizActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, QuizViewModelFactory(assets))
             .get(QuizViewModel::class.java)
 
-        viewModel.totalPointsLD.observe(this) { totalPoints ->
-            view.totalPoints.text = totalPoints.toString()
+        viewModel.totalPointsLiveData.observe(this) { totalPoints ->
+            view.totalPoints.text = "Total points: $totalPoints"
         }
-        viewModel.questionLD.observe(this) {
-            setQuestion(it)
-        }
-        viewModel.doneLD.observe(this) { totalPoints ->
-            showMessage("Quiz is done. Your score: $totalPoints!!")
-            view.next.isVisible = false
+        viewModel.questionStateLiveData.observe(this) {
+            when (it) {
+                is QuestionState.Value -> showQuestion(it.value)
+                is QuestionState.Done -> showDone(it.totalPoints)
+            }
         }
 
         view.next.setOnClickListener {
@@ -63,34 +59,22 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    fun setQuestion(question: Question?) {
-        view.question.text = question?.text ?: ""
-
-        if (question == null) {
-            supportFragmentManager.findFragmentById(R.id.container)?.let {
-                supportFragmentManager.beginTransaction()
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .remove(it)
-                    .commit()
-            }
-        } else {
-            val fragment = when (question) {
-                is OptQuestion -> OptQuestionFragment.newInstance(question)
-                is InputQuestion -> InputQuestionFragment.newInstance(question)
-                else -> throw IllegalArgumentException()
-            }
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit()
-        }
+    private fun showDone(totalPoints: Long) {
+        view.question.text = ""
+        view.next.isVisible = false
+        supportFragmentManager.removeById(R.id.container)
+        showMessage("Quiz is done. Your score: $totalPoints!!")
     }
-}
 
-fun Context.showMessage(text: String) {
-    Toast.makeText(this, text, Toast.LENGTH_LONG).apply {
-        setGravity(Gravity.BOTTOM, xOffset, yOffset + 200)
-        show()
+    private fun showQuestion(question: Question) {
+        view.question.text = question.text
+
+        val fragment = when (question) {
+            is OptQuestion -> OptQuestionFragment.newInstance(question)
+            is InputQuestion -> InputQuestionFragment.newInstance(question)
+            else -> throw IllegalArgumentException()
+        }
+        supportFragmentManager.replace(R.id.container, fragment)
     }
 }
 

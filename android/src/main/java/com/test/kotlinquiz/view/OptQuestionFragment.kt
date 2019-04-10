@@ -1,23 +1,19 @@
 package com.test.kotlinquiz.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import androidx.annotation.LayoutRes
-import androidx.core.view.LayoutInflaterCompat
 import androidx.core.view.children
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import com.test.kotlinquiz.R
-import com.test.kotlinquiz.data.InputQuestion
 import com.test.kotlinquiz.data.OptAnswer
 import com.test.kotlinquiz.data.OptQuestion
 import com.test.kotlinquiz.data.OptQuestionDto
 import kotlinx.serialization.json.Json
+
 
 class OptQuestionFragment : Fragment() {
 
