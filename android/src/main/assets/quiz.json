@@ -63,12 +63,12 @@
     "answers": [
       {
         "id": "full",
-        "content": "Full:)",
+        "content": "Full :)",
         "points": 40
       },
       {
         "id": "2",
-        "content": "Empty:(",
+        "content": "Empty :(",
         "points": 1,
         "next": "5"
       }
