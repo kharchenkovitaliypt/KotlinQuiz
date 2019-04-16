@@ -9,8 +9,8 @@ expect val currentThreadName: String
 
 expect val isMainThread: Boolean
 
-//fun assertIsMainThread() {
-//    if (!isMainThread) {
-//        throw IllegalStateException("Must be on main thread but current is $currentThread")
-//    }
-//}
+fun assertMainThread() {
+    if (!isMainThread) {
+        throw IllegalStateException("Must be on main thread but current is $currentThread")
+    }
+}
