@@ -8,7 +8,6 @@ configurations {
 
 android {
     compileSdkVersion 28
-//    buildToolsVersion "28.0.3"
 }
 
 final frameworkName = 'CommonCode'
@@ -33,8 +32,8 @@ kotlin {
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlinx_coroutines_version"
                 api "org.jetbrains.kotlinx:kotlinx-io:$kotlinx_io_version"
                 api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlinx_serialization_version"
-                api "com.soywiz:klock:$klock_version"
-                api 'co.touchlab:stately:0.5.2'
+                api "com.soywiz:klock-metadata:$klock_version"
+                api 'co.touchlab:stately:0.7.0'
 //                api "io.ktor:ktor-client-core:$ktor_version"
 //                api "io.ktor:ktor-client-json:$ktor_version"
             }
@@ -51,6 +50,7 @@ kotlin {
                 api "org.jetbrains.kotlinx:kotlinx-io-jvm:$kotlinx_io_version"
                 api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
                 api "androidx.lifecycle:lifecycle-extensions:2.0.0"
+                api "com.soywiz:klock-android:$klock_version"
 //                api 'org.jetbrains.kotlin:kotlin-stdlib'
 //                api "io.ktor:ktor-client-android:$ktor_version"
 //                api "io.ktor:ktor-client-json-jvm:$ktor_version"
@@ -61,11 +61,19 @@ kotlin {
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$kotlinx_coroutines_version"
                 api "org.jetbrains.kotlinx:kotlinx-io-native:$kotlinx_io_version"
                 api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$kotlinx_serialization_version"
+                api "com.soywiz:klock-iosx64:$klock_version"
 //                implementation "io.ktor:ktor-client-ios:$ktor_version"
 //                implementation "io.ktor:ktor-client-ios-iosx64:$ktor_version"
 //                implementation "io.ktor:ktor-client-json-native:$ktor_version"
             }
         }
+    }
+}
+
+kotlin.sourceSets.all {
+    languageSettings {
+        useExperimentalAnnotation('kotlin.Experimental')
+        progressiveMode = true // false by default
     }
 }
 

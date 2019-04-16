@@ -5,11 +5,12 @@ import kotlinx.coroutines.CoroutineDispatcher
 expect val mainDispatcher: CoroutineDispatcher
 
 expect val currentThread: Any
+expect val currentThreadName: String
 
 expect val isMainThread: Boolean
 
-//fun checkIsMainThread() {
+//fun assertIsMainThread() {
 //    if (!isMainThread) {
-//        throw IllegalStateException("Must be main thread but current is $currentThread")
+//        throw IllegalStateException("Must be on main thread but current is $currentThread")
 //    }
 //}

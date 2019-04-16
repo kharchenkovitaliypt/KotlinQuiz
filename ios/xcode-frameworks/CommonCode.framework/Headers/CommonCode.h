@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@class CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeKotlinUnit, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
+@class CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeKotlinUnit, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, CommonCodeStatelyThreadLocalRef, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
 
-@protocol CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeQuestion, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialContext, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
+@protocol CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeQuestion, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -151,7 +151,7 @@ __attribute__((swift_name("ViewModel")))
 __attribute__((swift_name("Kotlinx_coroutines_coreCoroutineScope")))
 @protocol CommonCodeKotlinx_coroutines_coreCoroutineScope
 @required
-@property (readonly) id<CommonCodeKotlinCoroutineContext> coroutineContext;
+@property (readonly) id<CommonCodeKotlinCoroutineContext> coroutineContext __attribute__((swift_name("coroutineContext")));
 @end;
 
 __attribute__((swift_name("CoroutineViewModel")))
@@ -164,7 +164,7 @@ __attribute__((swift_name("MutableLiveData")))
 @interface CommonCodeMutableLiveData : KotlinBase
 - (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(id _Nullable))callback __attribute__((swift_name("observe(callback:)")));
-@property id _Nullable data;
+@property id _Nullable data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((swift_name("QuestionState")))
@@ -175,14 +175,14 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QuestionState.Value")))
 @interface CommonCodeQuestionStateValue : CommonCodeQuestionState
 - (instancetype)initWithValue:(id<CommonCodeQuestion>)value __attribute__((swift_name("init(value:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) id<CommonCodeQuestion> value;
+@property (readonly) id<CommonCodeQuestion> value __attribute__((swift_name("value")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QuestionState.Done")))
 @interface CommonCodeQuestionStateDone : CommonCodeQuestionState
 - (instancetype)initWithTotalPoints:(int64_t)totalPoints __attribute__((swift_name("init(totalPoints:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) int64_t totalPoints;
+@property (readonly) int64_t totalPoints __attribute__((swift_name("totalPoints")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -192,7 +192,7 @@ __attribute__((swift_name("PointsLiveData")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(CommonCodeLong *))callback __attribute__((swift_name("observe(callback:)")));
-@property CommonCodeLong *data;
+@property CommonCodeLong *data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -202,7 +202,7 @@ __attribute__((swift_name("QuestionStateLiveData")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(CommonCodeQuestionState *))callback __attribute__((swift_name("observe(callback:)")));
-@property CommonCodeQuestionState *data;
+@property CommonCodeQuestionState *data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -213,8 +213,8 @@ __attribute__((swift_name("QuizViewModel")))
 + (instancetype)new __attribute__((unavailable));
 - (id<CommonCodeKotlinx_coroutines_coreJob>)processAnswerAnswer:(NSString *)answer __attribute__((swift_name("processAnswer(answer:)")));
 - (id<CommonCodeKotlinx_coroutines_coreJob>)processAnswerAnswer_:(id<CommonCodeOptAnswer>)answer __attribute__((swift_name("processAnswer(answer_:)")));
-@property (readonly) CommonCodePointsLiveData *totalPointsLiveData;
-@property (readonly) CommonCodeQuestionStateLiveData *questionStateLiveData;
+@property (readonly) CommonCodePointsLiveData *totalPointsLiveData __attribute__((swift_name("totalPointsLiveData")));
+@property (readonly) CommonCodeQuestionStateLiveData *questionStateLiveData __attribute__((swift_name("questionStateLiveData")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -233,8 +233,8 @@ __attribute__((swift_name("QuizService")))
 __attribute__((swift_name("Answer")))
 @protocol CommonCodeAnswer
 @required
-@property (readonly) int64_t points;
-@property (readonly) NSString * _Nullable next;
+@property (readonly) int64_t points __attribute__((swift_name("points")));
+@property (readonly) NSString * _Nullable next __attribute__((swift_name("next")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -244,21 +244,21 @@ __attribute__((swift_name("AnswerResult")))
 - (id<CommonCodeQuestion> _Nullable)component1 __attribute__((swift_name("component1()")));
 - (int64_t)component2 __attribute__((swift_name("component2()")));
 - (CommonCodeAnswerResult *)doCopyNextQuestion:(id<CommonCodeQuestion> _Nullable)nextQuestion totalPoints:(int64_t)totalPoints __attribute__((swift_name("doCopy(nextQuestion:totalPoints:)")));
-@property (readonly) id<CommonCodeQuestion> _Nullable nextQuestion;
-@property (readonly) int64_t totalPoints;
+@property (readonly) id<CommonCodeQuestion> _Nullable nextQuestion __attribute__((swift_name("nextQuestion")));
+@property (readonly) int64_t totalPoints __attribute__((swift_name("totalPoints")));
 @end;
 
 __attribute__((swift_name("Question")))
 @protocol CommonCodeQuestion
 @required
-@property (readonly) NSString *id;
-@property (readonly) NSString *text;
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *text __attribute__((swift_name("text")));
 @end;
 
 __attribute__((swift_name("InputQuestion")))
 @protocol CommonCodeInputQuestion <CommonCodeQuestion, CommonCodeAnswer>
 @required
-@property (readonly) NSString * _Nullable validator;
+@property (readonly) NSString * _Nullable validator __attribute__((swift_name("validator")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -286,7 +286,7 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerializationStra
 @protocol CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy
 @required
 - (void)serializeEncoder:(id<CommonCodeKotlinx_serialization_runtime_nativeEncoder>)encoder obj:(id _Nullable)obj __attribute__((swift_name("serialize(encoder:obj:)")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor> descriptor;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDeserializationStrategy")))
@@ -294,7 +294,7 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDeserializationSt
 @required
 - (id _Nullable)deserializeDecoder:(id<CommonCodeKotlinx_serialization_runtime_nativeDecoder>)decoder __attribute__((swift_name("deserialize(decoder:)")));
 - (id _Nullable)patchDecoder:(id<CommonCodeKotlinx_serialization_runtime_nativeDecoder>)decoder old:(id _Nullable)old __attribute__((swift_name("patch(decoder:old:)")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor> descriptor;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeKSerializer")))
@@ -322,14 +322,14 @@ __attribute__((swift_name("InputQuestionDto.$serializer")))
 __attribute__((swift_name("OptQuestion")))
 @protocol CommonCodeOptQuestion <CommonCodeQuestion>
 @required
-@property (readonly) NSArray<id<CommonCodeOptAnswer>> *answers;
+@property (readonly) NSArray<id<CommonCodeOptAnswer>> *answers __attribute__((swift_name("answers")));
 @end;
 
 __attribute__((swift_name("OptAnswer")))
 @protocol CommonCodeOptAnswer <CommonCodeAnswer>
 @required
-@property (readonly) NSString *id;
-@property (readonly) NSString *content;
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *content __attribute__((swift_name("content")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -340,7 +340,7 @@ __attribute__((swift_name("OptQuestionDto")))
 - (NSString *)component2 __attribute__((swift_name("component2()")));
 - (NSArray<CommonCodeOptAnswerDto *> *)component3 __attribute__((swift_name("component3()")));
 - (CommonCodeOptQuestionDto *)doCopyId:(NSString *)id text:(NSString *)text answers:(NSArray<CommonCodeOptAnswerDto *> *)answers __attribute__((swift_name("doCopy(id:text:answers:)")));
-@property (readonly) NSArray<CommonCodeOptAnswerDto *> *answers;
+@property (readonly) NSArray<CommonCodeOptAnswerDto *> *answers __attribute__((swift_name("answers")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -394,6 +394,20 @@ __attribute__((swift_name("OptAnswerDto.$serializer")))
 - (void)serializeEncoder:(id<CommonCodeKotlinx_serialization_runtime_nativeEncoder>)encoder obj:(CommonCodeOptAnswerDto *)obj __attribute__((swift_name("serialize(encoder:obj:)")));
 @end;
 
+__attribute__((swift_name("StatelyThreadLocalRef")))
+@interface CommonCodeStatelyThreadLocalRef : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (id _Nullable)get __attribute__((swift_name("get()")));
+- (void)remove __attribute__((swift_name("remove()")));
+- (void)setValue:(id _Nullable)value __attribute__((swift_name("set(value:)")));
+@end;
+
+@interface CommonCodeStatelyThreadLocalRef (Extensions)
+- (id _Nullable)consume __attribute__((swift_name("consume()")));
+- (id _Nullable)getAndSetValue:(id _Nullable)value __attribute__((swift_name("getAndSet(value:)")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QuizViewModelKt")))
 @interface CommonCodeQuizViewModelKt : KotlinBase
@@ -401,11 +415,26 @@ __attribute__((swift_name("QuizViewModelKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MainDispatcherKt")))
+@interface CommonCodeMainDispatcherKt : KotlinBase
+@property (class, readonly) CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *mainDispatcher __attribute__((swift_name("mainDispatcher")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ThreadUtilsKt")))
 @interface CommonCodeThreadUtilsKt : KotlinBase
-@property (class, readonly) CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *mainDispatcher;
-@property (class, readonly) id currentThread;
-@property (class, readonly) BOOL isMainThread;
++ (void)runWorkerQueueJob:(CommonCodeKotlinUnit *(^)(void))job __attribute__((swift_name("runWorkerQueue(job:)")));
++ (void)runMainQueueJob:(CommonCodeKotlinUnit *(^)(void))job __attribute__((swift_name("runMainQueue(job:)")));
++ (CommonCodeStatelyThreadLocalRef *)threadLocalRefOfValue:(id _Nullable)value __attribute__((swift_name("threadLocalRefOf(value:)")));
+@property (class, readonly) id currentThread __attribute__((swift_name("currentThread")));
+@property (class, readonly) NSString *currentThreadName __attribute__((swift_name("currentThreadName")));
+@property (class, readonly) BOOL isMainThread __attribute__((swift_name("isMainThread")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CoroutineUtilsKt")))
+@interface CommonCodeCoroutineUtilsKt : KotlinBase
++ (void)generateTextSid:(NSString *)sid __attribute__((swift_name("generateText(sid:)")));
 @end;
 
 __attribute__((swift_name("KotlinCoroutineContext")))
@@ -428,7 +457,7 @@ __attribute__((swift_name("KotlinUnit")))
 __attribute__((swift_name("KotlinCoroutineContextElement")))
 @protocol CommonCodeKotlinCoroutineContextElement <CommonCodeKotlinCoroutineContext>
 @required
-@property (readonly) id<CommonCodeKotlinCoroutineContextKey> key;
+@property (readonly) id<CommonCodeKotlinCoroutineContextKey> key __attribute__((swift_name("key")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreJob")))
@@ -443,11 +472,11 @@ __attribute__((swift_name("Kotlinx_coroutines_coreJob")))
 - (id<CommonCodeKotlinx_coroutines_coreDisposableHandle>)invokeOnCompletionHandler:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable * _Nullable))handler __attribute__((swift_name("invokeOnCompletion(handler:)")));
 - (id<CommonCodeKotlinx_coroutines_coreJob>)plusOther:(id<CommonCodeKotlinx_coroutines_coreJob>)other __attribute__((swift_name("plus(other:)")));
 - (BOOL)start __attribute__((swift_name("start()")));
-@property (readonly) id<CommonCodeKotlinSequence> children;
-@property (readonly) BOOL isActive;
-@property (readonly) BOOL isCancelled;
-@property (readonly) BOOL isCompleted;
-@property (readonly) id<CommonCodeKotlinx_coroutines_coreSelectClause0> onJoin;
+@property (readonly) id<CommonCodeKotlinSequence> children __attribute__((swift_name("children")));
+@property (readonly) BOOL isActive __attribute__((swift_name("isActive")));
+@property (readonly) BOOL isCancelled __attribute__((swift_name("isCancelled")));
+@property (readonly) BOOL isCompleted __attribute__((swift_name("isCompleted")));
+@property (readonly) id<CommonCodeKotlinx_coroutines_coreSelectClause0> onJoin __attribute__((swift_name("onJoin")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -459,7 +488,7 @@ __attribute__((swift_name("KotlinArray")))
 - (id _Nullable)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
 - (id<CommonCodeKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
 - (void)setIndex:(int32_t)index value:(id _Nullable)value __attribute__((swift_name("set(index:value:)")));
-@property (readonly) int32_t size;
+@property (readonly) int32_t size __attribute__((swift_name("size")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeEncoder")))
@@ -482,7 +511,7 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeEncoder")))
 - (void)encodeShortValue:(int16_t)value __attribute__((swift_name("encodeShort(value:)")));
 - (void)encodeStringValue:(NSString *)value __attribute__((swift_name("encodeString(value:)")));
 - (void)encodeUnit __attribute__((swift_name("encodeUnit()")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialContext> context;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialModule> context __attribute__((swift_name("context")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialDescriptor")))
@@ -494,10 +523,10 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialDescriptor"
 - (NSString *)getElementNameIndex:(int32_t)index __attribute__((swift_name("getElementName(index:)")));
 - (NSArray<id<CommonCodeKotlinAnnotation>> *)getEntityAnnotations __attribute__((swift_name("getEntityAnnotations()")));
 - (BOOL)isElementOptionalIndex:(int32_t)index __attribute__((swift_name("isElementOptional(index:)")));
-@property (readonly) int32_t elementsCount;
-@property (readonly) BOOL isNullable;
-@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeSerialKind *kind;
-@property (readonly) NSString *name;
+@property (readonly) int32_t elementsCount __attribute__((swift_name("elementsCount")));
+@property (readonly) BOOL isNullable __attribute__((swift_name("isNullable")));
+@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeSerialKind *kind __attribute__((swift_name("kind")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDecoder")))
@@ -521,8 +550,8 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDecoder")))
 - (void)decodeUnit __attribute__((swift_name("decodeUnit()")));
 - (id _Nullable)updateNullableSerializableValueDeserializer:(id<CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy>)deserializer old:(id _Nullable)old __attribute__((swift_name("updateNullableSerializableValue(deserializer:old:)")));
 - (id _Nullable)updateSerializableValueDeserializer:(id<CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy>)deserializer old:(id _Nullable)old __attribute__((swift_name("updateSerializableValue(deserializer:old:)")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialContext> context;
-@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialModule> context __attribute__((swift_name("context")));
+@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode __attribute__((swift_name("updateMode")));
 @end;
 
 __attribute__((swift_name("KotlinAbstractCoroutineContextElement")))
@@ -580,8 +609,8 @@ __attribute__((swift_name("KotlinThrowable")))
 - (instancetype)initWithMessage:(NSString * _Nullable)message cause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
 - (CommonCodeKotlinArray *)getStackTrace __attribute__((swift_name("getStackTrace()")));
 - (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
-@property (readonly) CommonCodeKotlinThrowable * _Nullable cause;
-@property (readonly) NSString * _Nullable message;
+@property (readonly) CommonCodeKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
+@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
 @end;
 
 __attribute__((swift_name("KotlinException")))
@@ -657,7 +686,7 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeCompositeEncoder"
 - (void)encodeUnitElementDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc index:(int32_t)index __attribute__((swift_name("encodeUnitElement(desc:index:)")));
 - (void)endStructureDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc __attribute__((swift_name("endStructure(desc:)")));
 - (BOOL)shouldEncodeElementDefaultDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc index:(int32_t)index __attribute__((swift_name("shouldEncodeElementDefault(desc:index:)")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialContext> context;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialModule> context __attribute__((swift_name("context")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialClassDescImpl")))
@@ -669,17 +698,20 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialClassDescIm
 - (void)pushDescriptorDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc __attribute__((swift_name("pushDescriptor(desc:)")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeEnumDescriptor")))
 @interface CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor : CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl
 - (instancetype)initWithName:(NSString *)name choices:(CommonCodeKotlinArray *)choices __attribute__((swift_name("init(name:choices:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithName:(NSString *)name generatedSerializer:(id<CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer> _Nullable)generatedSerializer __attribute__((swift_name("init(name:generatedSerializer:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @end;
 
-__attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialContext")))
-@protocol CommonCodeKotlinx_serialization_runtime_nativeSerialContext
+__attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialModule")))
+@protocol CommonCodeKotlinx_serialization_runtime_nativeSerialModule
 @required
-- (id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer> _Nullable)getKclass:(id<CommonCodeKotlinKClass>)kclass __attribute__((swift_name("get(kclass:)")));
-- (id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer> _Nullable)getByValueValue:(id)value __attribute__((swift_name("getByValue(value:)")));
+- (void)dumpToCollector:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector>)collector __attribute__((swift_name("dumpTo(collector:)")));
+- (id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer> _Nullable)getContextualKclass:(id<CommonCodeKotlinKClass>)kclass __attribute__((swift_name("getContextual(kclass:)")));
+- (id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer> _Nullable)getPolymorphicBaseClass:(id<CommonCodeKotlinKClass>)baseClass value:(id)value __attribute__((swift_name("getPolymorphic(baseClass:value:)")));
+- (id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer> _Nullable)getPolymorphicBaseClass:(id<CommonCodeKotlinKClass>)baseClass serializedClassName:(NSString *)serializedClassName __attribute__((swift_name("getPolymorphic(baseClass:serializedClassName:)")));
 @end;
 
 __attribute__((swift_name("KotlinAnnotation")))
@@ -711,8 +743,8 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeCompositeDecoder"
 - (void)endStructureDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc __attribute__((swift_name("endStructure(desc:)")));
 - (id _Nullable)updateNullableSerializableElementDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc index:(int32_t)index deserializer:(id<CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy>)deserializer old:(id _Nullable)old __attribute__((swift_name("updateNullableSerializableElement(desc:index:deserializer:old:)")));
 - (id _Nullable)updateSerializableElementDesc:(id<CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor>)desc index:(int32_t)index deserializer:(id<CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy>)deserializer old:(id _Nullable)old __attribute__((swift_name("updateSerializableElement(desc:index:deserializer:old:)")));
-@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialContext> context;
-@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode;
+@property (readonly) id<CommonCodeKotlinx_serialization_runtime_nativeSerialModule> context __attribute__((swift_name("context")));
+@property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode __attribute__((swift_name("updateMode")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -730,8 +762,8 @@ __attribute__((swift_name("KotlinEnum")))
 @interface CommonCodeKotlinEnum : KotlinBase <CommonCodeKotlinComparable>
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer));
 - (int32_t)compareToOther:(CommonCodeKotlinEnum *)other __attribute__((swift_name("compareTo(other:)")));
-@property (readonly) NSString *name;
-@property (readonly) int32_t ordinal;
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t ordinal __attribute__((swift_name("ordinal")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -739,9 +771,9 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeUpdateMode")))
 @interface CommonCodeKotlinx_serialization_runtime_nativeUpdateMode : CommonCodeKotlinEnum
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *banned;
-@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *overwrite;
-@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *update;
+@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *banned __attribute__((swift_name("banned")));
+@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *overwrite __attribute__((swift_name("overwrite")));
+@property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *update __attribute__((swift_name("update")));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (int32_t)compareToOther:(CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *)other __attribute__((swift_name("compareTo(other:)")));
 @end;
@@ -750,7 +782,7 @@ __attribute__((swift_name("KotlinContinuation")))
 @protocol CommonCodeKotlinContinuation
 @required
 - (void)resumeWithResult:(id _Nullable)result __attribute__((swift_name("resumeWith(result:)")));
-@property (readonly) id<CommonCodeKotlinCoroutineContext> context;
+@property (readonly) id<CommonCodeKotlinCoroutineContext> context __attribute__((swift_name("context")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreRunnable")))
@@ -773,8 +805,8 @@ __attribute__((swift_name("Kotlinx_coroutines_coreSelectInstance")))
 - (id _Nullable)performAtomicTrySelectDesc:(CommonCodeKotlinx_coroutines_coreAtomicDesc *)desc __attribute__((swift_name("performAtomicTrySelect(desc:)")));
 - (void)resumeSelectCancellableWithExceptionException:(CommonCodeKotlinThrowable *)exception __attribute__((swift_name("resumeSelectCancellableWithException(exception:)")));
 - (BOOL)trySelectIdempotent:(id _Nullable)idempotent __attribute__((swift_name("trySelect(idempotent:)")));
-@property (readonly) id<CommonCodeKotlinContinuation> completion;
-@property (readonly) BOOL isSelected;
+@property (readonly) id<CommonCodeKotlinContinuation> completion __attribute__((swift_name("completion")));
+@property (readonly) BOOL isSelected __attribute__((swift_name("isSelected")));
 @end;
 
 __attribute__((swift_name("KotlinSuspendFunction")))
@@ -785,6 +817,13 @@ __attribute__((swift_name("KotlinSuspendFunction")))
 __attribute__((swift_name("KotlinSuspendFunction0")))
 @protocol CommonCodeKotlinSuspendFunction0 <CommonCodeKotlinSuspendFunction>
 @required
+@end;
+
+__attribute__((swift_name("Kotlinx_serialization_runtime_nativeSerialModuleCollector")))
+@protocol CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector
+@required
+- (void)contextualKClass:(id<CommonCodeKotlinKClass>)kClass serializer:(id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer>)serializer __attribute__((swift_name("contextual(kClass:serializer:)")));
+- (void)polymorphicBaseClass:(id<CommonCodeKotlinKClass>)baseClass actualClass:(id<CommonCodeKotlinKClass>)actualClass actualSerializer:(id<CommonCodeKotlinx_serialization_runtime_nativeKSerializer>)actualSerializer __attribute__((swift_name("polymorphic(baseClass:actualClass:actualSerializer:)")));
 @end;
 
 __attribute__((swift_name("KotlinKDeclarationContainer")))
@@ -806,8 +845,8 @@ __attribute__((swift_name("KotlinKClass")))
 @protocol CommonCodeKotlinKClass <CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier>
 @required
 - (BOOL)isInstanceValue:(id _Nullable)value __attribute__((swift_name("isInstance(value:)")));
-@property (readonly) NSString * _Nullable qualifiedName;
-@property (readonly) NSString * _Nullable simpleName;
+@property (readonly) NSString * _Nullable qualifiedName __attribute__((swift_name("qualifiedName")));
+@property (readonly) NSString * _Nullable simpleName __attribute__((swift_name("simpleName")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreAtomicDesc")))
@@ -832,7 +871,7 @@ __attribute__((swift_name("Kotlinx_coroutines_coreAtomicOp")))
 - (void)completeAffected:(id _Nullable)affected failure:(id _Nullable)failure __attribute__((swift_name("complete(affected:failure:)")));
 - (id _Nullable)prepareAffected:(id _Nullable)affected __attribute__((swift_name("prepare(affected:)")));
 - (BOOL)tryDecideDecision:(id _Nullable)decision __attribute__((swift_name("tryDecide(decision:)")));
-@property (readonly) BOOL isDecided;
+@property (readonly) BOOL isDecided __attribute__((swift_name("isDecided")));
 @end;
 
 NS_ASSUME_NONNULL_END

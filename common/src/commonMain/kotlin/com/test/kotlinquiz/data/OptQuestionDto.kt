@@ -1,6 +1,5 @@
 package com.test.kotlinquiz.data
 
-import kotlinx.serialization.Optional
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -17,6 +16,5 @@ data class OptAnswerDto(
     override val id: ID,
     override val content: String,
     override val points: Points,
-    @Optional
     override val next: ID? = null
 ): OptAnswer

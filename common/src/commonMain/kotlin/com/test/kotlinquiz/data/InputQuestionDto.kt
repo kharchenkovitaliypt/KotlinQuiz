@@ -1,6 +1,5 @@
 package com.test.kotlinquiz.data
 
-import kotlinx.serialization.Optional
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -10,6 +9,6 @@ data class InputQuestionDto(
     @SerialName("question")
     override val text: String,
     override val points: Points,
-    @Optional override val next: ID? = null,
-    @Optional override val validator: String? = null
+    override val next: ID? = null,
+    override val validator: String? = null
 ) : InputQuestion

@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CoroutineUtilsKt.generateText(sid: "Catty")
+        
         let quizService = QuizService(assetService: AssetService())
         self.viewModel = QuizViewModel(quizService: quizService)
         

@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.io.core.readText
 import kotlinx.io.core.use
+import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.content
@@ -17,6 +18,7 @@ class QuizService(
         val value: Any
     )
 
+    @UseExperimental(UnstableDefault::class)
     private val jsonParser = Json.nonstrict
     private var questions: Map<ID, Question>? = null
 
@@ -60,7 +62,7 @@ class QuizService(
     }
 
     private fun toQuestion(obj: JsonObject): Question {
-        val type = obj["inputType"].content
+        val type = obj["inputType"]!!.content
         val serializer = when(type) {
             "select" -> OptQuestionDto.serializer()
             "text" -> InputQuestionDto.serializer()
