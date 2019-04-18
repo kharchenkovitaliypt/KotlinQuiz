@@ -10,10 +10,6 @@ import kotlin.coroutines.suspendCoroutine
 @PublishedApi
 internal val threadPool = Executors.newCachedThreadPool()
 
-suspend inline fun <R> suspendJob(
-    crossinline job: (Unit) -> R
-): R = suspendJob({}, job)
-
 actual suspend inline fun <P, R> suspendJob(
     crossinline producer: () -> P,
     crossinline job: (P) -> R

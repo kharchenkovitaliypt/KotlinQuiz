@@ -537,8 +537,8 @@ __attribute__((swift_name("ThreadAssertsKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ThreadSleepKt")))
-@interface CommonCodeThreadSleepKt : KotlinBase
+__attribute__((swift_name("ThreadCommandKt")))
+@interface CommonCodeThreadCommandKt : KotlinBase
 + (void)threadSleepMillis:(int64_t)millis __attribute__((swift_name("threadSleep(millis:)")));
 @end;
 

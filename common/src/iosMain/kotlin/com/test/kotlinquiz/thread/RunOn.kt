@@ -2,6 +2,7 @@ package com.test.kotlinquiz.thread
 
 import platform.darwin.*
 import kotlin.native.concurrent.DetachedObjectGraph
+import kotlin.native.concurrent.TransferMode
 import kotlin.native.concurrent.attach
 import kotlin.native.concurrent.freeze
 
@@ -11,7 +12,7 @@ val globalQueue: dispatch_queue_t get() {
 }
 val mainQueue: dispatch_queue_t get() = dispatch_get_main_queue()
 
-inline fun <L, R> doJob(
+inline fun <reified L, R> doJob(
     local: L,
     jobQueue: dispatch_queue_t = globalQueue,
     crossinline job: () -> R,
@@ -19,18 +20,19 @@ inline fun <L, R> doJob(
     crossinline fail: (L, Throwable) -> Unit
 ) {
     assertMainThread()
-    val localRef = ThreadLocalRef.of(local)
+    val localRef = DetachedObjectGraph(TransferMode.UNSAFE) { local }
 
     runOn(jobQueue) {
         try {
             val result = job()
+
             runOn(mainQueue) {
-                consume(localRef.getAndRelease(), result)
+                consume(localRef.attach(), result)
             }
         } catch (error: Throwable) {
             error.freeze()
             runOn(mainQueue) {
-                fail(localRef.getAndRelease(), error)
+                fail(localRef.attach(), error)
             }
         }
     }
@@ -42,7 +44,7 @@ inline fun runOn(
 ) {
     // Clean up accidental references
     val blockGraph = DetachedObjectGraph {
-        ({ block() })
+        { block() }
     }
     dispatch_async(queue, {
         initRuntimeIfNeeded()

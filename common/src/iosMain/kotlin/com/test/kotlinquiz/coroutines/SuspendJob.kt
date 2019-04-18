@@ -13,14 +13,14 @@ import kotlin.coroutines.suspendCoroutine
 fun randomText(sid: String) {
 
     GlobalScope.launch(mainDispatcher) {
-        val result = suspendJob({}) {
+        val result = suspendJob {
             threadSleep(5000)
             sid.toList().shuffled()
                 .joinToString(" ") {
                     it.toUpperCase().toString()
                 }
         }
-        logThread(">>>>result: $result")
+        logThread("randomText() result: $result")
     }
 }
 

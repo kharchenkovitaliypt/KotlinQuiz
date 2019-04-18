@@ -1,14 +1,10 @@
 package com.test.kotlinquiz.service
 
-import co.touchlab.stately.freeze
-import com.soywiz.klock.DateTime
 import com.test.kotlinquiz.data.*
-import com.test.kotlinquiz.utils.logd
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.content
-import kotlin.random.Random
 
 class QuizService(
     private val assetService: AssetService
@@ -18,7 +14,7 @@ class QuizService(
         val value: Any
     )
 
-    private val dbService = DbService()
+//    private val dbService = DbService()
 
     @UseExperimental(UnstableDefault::class)
     private val jsonParser = Json.nonstrict
