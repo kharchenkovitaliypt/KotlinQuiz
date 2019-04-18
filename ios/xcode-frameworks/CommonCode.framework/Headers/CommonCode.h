@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@class CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeKotlinUnit, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, CommonCodeStatelyThreadLocalRef, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
+@class CommonCodeDbQuestionImpl, CommonCodeSqldelight_runtimeQuery, CommonCodeKotlinUnit, CommonCodeSqldelight_runtimeTransacterTransaction, CommonCodeKotlinQuizDbCompanion, CommonCodeThreadLocalRef, CommonCodeThreadLocalRefCompanion, CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeQuestionImpl, CommonCodeDbService, CommonCodeMainDispatcher, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, NSObject, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinByteArray, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinByteIterator, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
 
-@protocol CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeQuestion, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
+@protocol CommonCodeDbQuestion, CommonCodeDbQuestionQueries, CommonCodeSqldelight_runtimeTransacter, CommonCodeKotlinQuizDb, CommonCodeSqldelight_runtimeSqlDriver, CommonCodeSqldelight_runtimeSqlDriverSchema, CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeQuestion, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreDelay, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinx_coroutines_coreCancellableContinuation, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeSqldelight_runtimeSqlCursor, CommonCodeSqldelight_runtimeQueryListener, CommonCodeSqldelight_runtimeSqlPreparedStatement, CommonCodeSqldelight_runtimeCloseable, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -141,6 +141,69 @@ __attribute__((swift_name("KotlinBoolean")))
 + (instancetype)numberWithBool:(BOOL)value;
 @end;
 
+__attribute__((swift_name("DbQuestion")))
+@protocol CommonCodeDbQuestion
+@required
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *text __attribute__((swift_name("text")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DbQuestionImpl")))
+@interface CommonCodeDbQuestionImpl : KotlinBase <CommonCodeDbQuestion>
+- (instancetype)initWithId:(NSString *)id text:(NSString *)text __attribute__((swift_name("init(id:text:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (CommonCodeDbQuestionImpl *)doCopyId:(NSString *)id text:(NSString *)text __attribute__((swift_name("doCopy(id:text:)")));
+@end;
+
+__attribute__((swift_name("Sqldelight_runtimeTransacter")))
+@protocol CommonCodeSqldelight_runtimeTransacter
+@required
+- (void)transactionNoEnclosing:(BOOL)noEnclosing body:(CommonCodeKotlinUnit *(^)(CommonCodeSqldelight_runtimeTransacterTransaction *))body __attribute__((swift_name("transaction(noEnclosing:body:)")));
+@end;
+
+__attribute__((swift_name("DbQuestionQueries")))
+@protocol CommonCodeDbQuestionQueries <CommonCodeSqldelight_runtimeTransacter>
+@required
+- (CommonCodeSqldelight_runtimeQuery *)selectAllMapper:(id (^)(NSString *, NSString *))mapper __attribute__((swift_name("selectAll(mapper:)")));
+- (CommonCodeSqldelight_runtimeQuery *)selectAll __attribute__((swift_name("selectAll()")));
+- (void)insertId:(NSString *)id text:(NSString *)text __attribute__((swift_name("insert(id:text:)")));
+@end;
+
+__attribute__((swift_name("KotlinQuizDb")))
+@protocol CommonCodeKotlinQuizDb <CommonCodeSqldelight_runtimeTransacter>
+@required
+@property (readonly) id<CommonCodeDbQuestionQueries> dbQuestionQueries __attribute__((swift_name("dbQuestionQueries")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinQuizDbCompanion")))
+@interface CommonCodeKotlinQuizDbCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+- (id<CommonCodeKotlinQuizDb>)invokeDriver:(id<CommonCodeSqldelight_runtimeSqlDriver>)driver __attribute__((swift_name("invoke(driver:)")));
+@property (readonly) id<CommonCodeSqldelight_runtimeSqlDriverSchema> Schema __attribute__((swift_name("Schema")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ThreadLocalRef")))
+@interface CommonCodeThreadLocalRef : KotlinBase
+- (id _Nullable)get __attribute__((swift_name("get()")));
+- (void)setValue:(id _Nullable)value __attribute__((swift_name("set(value:)")));
+- (void)release_ __attribute__((swift_name("release()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ThreadLocalRef.Companion")))
+@interface CommonCodeThreadLocalRefCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+- (CommonCodeThreadLocalRef *)ofValue:(id _Nullable)value __attribute__((swift_name("of(value:)")));
+@end;
+
 __attribute__((swift_name("ViewModel")))
 @interface CommonCodeViewModel : KotlinBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
@@ -224,10 +287,85 @@ __attribute__((swift_name("AssetService")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
+__attribute__((swift_name("Question")))
+@protocol CommonCodeQuestion
+@required
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *text __attribute__((swift_name("text")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("QuestionImpl")))
+@interface CommonCodeQuestionImpl : KotlinBase <CommonCodeQuestion>
+- (instancetype)initWithId:(NSString *)id text:(NSString *)text __attribute__((swift_name("init(id:text:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (CommonCodeQuestionImpl *)doCopyId:(NSString *)id text:(NSString *)text __attribute__((swift_name("doCopy(id:text:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DbService")))
+@interface CommonCodeDbService : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QuizService")))
 @interface CommonCodeQuizService : KotlinBase
 - (instancetype)initWithAssetService:(CommonCodeAssetService *)assetService __attribute__((swift_name("init(assetService:)"))) __attribute__((objc_designated_initializer));
+@end;
+
+__attribute__((swift_name("KotlinCoroutineContext")))
+@protocol CommonCodeKotlinCoroutineContext
+@required
+- (id _Nullable)foldInitial:(id _Nullable)initial operation:(id _Nullable (^)(id _Nullable, id<CommonCodeKotlinCoroutineContextElement>))operation __attribute__((swift_name("fold(initial:operation:)")));
+- (id<CommonCodeKotlinCoroutineContextElement> _Nullable)getKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("get(key:)")));
+- (id<CommonCodeKotlinCoroutineContext>)minusKeyKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("minusKey(key:)")));
+- (id<CommonCodeKotlinCoroutineContext>)plusContext:(id<CommonCodeKotlinCoroutineContext>)context __attribute__((swift_name("plus(context:)")));
+@end;
+
+__attribute__((swift_name("KotlinCoroutineContextElement")))
+@protocol CommonCodeKotlinCoroutineContextElement <CommonCodeKotlinCoroutineContext>
+@required
+@property (readonly) id<CommonCodeKotlinCoroutineContextKey> key __attribute__((swift_name("key")));
+@end;
+
+__attribute__((swift_name("KotlinAbstractCoroutineContextElement")))
+@interface CommonCodeKotlinAbstractCoroutineContextElement : KotlinBase <CommonCodeKotlinCoroutineContextElement>
+- (instancetype)initWithKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("init(key:)"))) __attribute__((objc_designated_initializer));
+@end;
+
+__attribute__((swift_name("KotlinContinuationInterceptor")))
+@protocol CommonCodeKotlinContinuationInterceptor <CommonCodeKotlinCoroutineContextElement>
+@required
+- (id<CommonCodeKotlinContinuation>)interceptContinuationContinuation:(id<CommonCodeKotlinContinuation>)continuation __attribute__((swift_name("interceptContinuation(continuation:)")));
+- (void)releaseInterceptedContinuationContinuation:(id<CommonCodeKotlinContinuation>)continuation __attribute__((swift_name("releaseInterceptedContinuation(continuation:)")));
+@end;
+
+__attribute__((swift_name("Kotlinx_coroutines_coreCoroutineDispatcher")))
+@interface CommonCodeKotlinx_coroutines_coreCoroutineDispatcher : CommonCodeKotlinAbstractCoroutineContextElement <CommonCodeKotlinContinuationInterceptor>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("init(key:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)dispatchContext:(id<CommonCodeKotlinCoroutineContext>)context block:(id<CommonCodeKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("dispatch(context:block:)")));
+- (void)dispatchYieldContext:(id<CommonCodeKotlinCoroutineContext>)context block:(id<CommonCodeKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("dispatchYield(context:block:)")));
+- (BOOL)isDispatchNeededContext:(id<CommonCodeKotlinCoroutineContext>)context __attribute__((swift_name("isDispatchNeeded(context:)")));
+- (CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)plusOther:(CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)other __attribute__((swift_name("plus(other:)")));
+@end;
+
+__attribute__((swift_name("Kotlinx_coroutines_coreDelay")))
+@protocol CommonCodeKotlinx_coroutines_coreDelay
+@required
+- (id<CommonCodeKotlinx_coroutines_coreDisposableHandle>)invokeOnTimeoutTimeMillis:(int64_t)timeMillis block:(id<CommonCodeKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("invokeOnTimeout(timeMillis:block:)")));
+- (void)scheduleResumeAfterDelayTimeMillis:(int64_t)timeMillis continuation:(id<CommonCodeKotlinx_coroutines_coreCancellableContinuation>)continuation __attribute__((swift_name("scheduleResumeAfterDelay(timeMillis:continuation:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MainDispatcher")))
+@interface CommonCodeMainDispatcher : CommonCodeKotlinx_coroutines_coreCoroutineDispatcher <CommonCodeKotlinx_coroutines_coreDelay>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((swift_name("Answer")))
@@ -246,13 +384,6 @@ __attribute__((swift_name("AnswerResult")))
 - (CommonCodeAnswerResult *)doCopyNextQuestion:(id<CommonCodeQuestion> _Nullable)nextQuestion totalPoints:(int64_t)totalPoints __attribute__((swift_name("doCopy(nextQuestion:totalPoints:)")));
 @property (readonly) id<CommonCodeQuestion> _Nullable nextQuestion __attribute__((swift_name("nextQuestion")));
 @property (readonly) int64_t totalPoints __attribute__((swift_name("totalPoints")));
-@end;
-
-__attribute__((swift_name("Question")))
-@protocol CommonCodeQuestion
-@required
-@property (readonly) NSString *id __attribute__((swift_name("id")));
-@property (readonly) NSString *text __attribute__((swift_name("text")));
 @end;
 
 __attribute__((swift_name("InputQuestion")))
@@ -394,18 +525,40 @@ __attribute__((swift_name("OptAnswerDto.$serializer")))
 - (void)serializeEncoder:(id<CommonCodeKotlinx_serialization_runtime_nativeEncoder>)encoder obj:(CommonCodeOptAnswerDto *)obj __attribute__((swift_name("serialize(encoder:obj:)")));
 @end;
 
-__attribute__((swift_name("StatelyThreadLocalRef")))
-@interface CommonCodeStatelyThreadLocalRef : KotlinBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (id _Nullable)get __attribute__((swift_name("get()")));
-- (void)remove __attribute__((swift_name("remove()")));
-- (void)setValue:(id _Nullable)value __attribute__((swift_name("set(value:)")));
+@interface CommonCodeThreadLocalRef (Extensions)
+- (id _Nullable)getAndSetValue:(id _Nullable)value __attribute__((swift_name("getAndSet(value:)")));
+- (id _Nullable)getAndRelease __attribute__((swift_name("getAndRelease()")));
 @end;
 
-@interface CommonCodeStatelyThreadLocalRef (Extensions)
-- (id _Nullable)consume __attribute__((swift_name("consume()")));
-- (id _Nullable)getAndSetValue:(id _Nullable)value __attribute__((swift_name("getAndSet(value:)")));
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ThreadAssertsKt")))
+@interface CommonCodeThreadAssertsKt : KotlinBase
++ (void)assertMainThread __attribute__((swift_name("assertMainThread()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ThreadSleepKt")))
+@interface CommonCodeThreadSleepKt : KotlinBase
++ (void)threadSleepMillis:(int64_t)millis __attribute__((swift_name("threadSleep(millis:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ThreadInfoKt")))
+@interface CommonCodeThreadInfoKt : KotlinBase
++ (void)logThreadMsg:(NSString *)msg __attribute__((swift_name("logThread(msg:)")));
+@property (class, readonly) CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *mainDispatcher __attribute__((swift_name("mainDispatcher")));
+@property (class, readonly) id currentThread __attribute__((swift_name("currentThread")));
+@property (class, readonly) NSString *currentThreadName __attribute__((swift_name("currentThreadName")));
+@property (class, readonly) BOOL isMainThread __attribute__((swift_name("isMainThread")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RunOnKt")))
+@interface CommonCodeRunOnKt : KotlinBase
++ (void)doJobLocal:(id _Nullable)local jobQueue:(NSObject * _Nullable)jobQueue job:(id _Nullable (^)(void))job consume:(CommonCodeKotlinUnit *(^)(id _Nullable, id _Nullable))consume fail:(CommonCodeKotlinUnit *(^)(id _Nullable, CommonCodeKotlinThrowable *))fail __attribute__((swift_name("doJob(local:jobQueue:job:consume:fail:)")));
++ (void)runOnQueue:(NSObject * _Nullable)queue block:(CommonCodeKotlinUnit *(^)(void))block __attribute__((swift_name("runOn(queue:block:)")));
+@property (class, readonly) NSObject * _Nullable globalQueue __attribute__((swift_name("globalQueue")));
+@property (class, readonly) NSObject * _Nullable mainQueue __attribute__((swift_name("mainQueue")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -415,35 +568,34 @@ __attribute__((swift_name("QuizViewModelKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MainDispatcherKt")))
-@interface CommonCodeMainDispatcherKt : KotlinBase
-@property (class, readonly) CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *mainDispatcher __attribute__((swift_name("mainDispatcher")));
+__attribute__((swift_name("LogdKt")))
+@interface CommonCodeLogdKt : KotlinBase
++ (void)logdMsg:(NSString *)msg __attribute__((swift_name("logd(msg:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ThreadUtilsKt")))
-@interface CommonCodeThreadUtilsKt : KotlinBase
-+ (void)runWorkerQueueJob:(CommonCodeKotlinUnit *(^)(void))job __attribute__((swift_name("runWorkerQueue(job:)")));
-+ (void)runMainQueueJob:(CommonCodeKotlinUnit *(^)(void))job __attribute__((swift_name("runMainQueue(job:)")));
-+ (CommonCodeStatelyThreadLocalRef *)threadLocalRefOfValue:(id _Nullable)value __attribute__((swift_name("threadLocalRefOf(value:)")));
-@property (class, readonly) id currentThread __attribute__((swift_name("currentThread")));
-@property (class, readonly) NSString *currentThreadName __attribute__((swift_name("currentThreadName")));
-@property (class, readonly) BOOL isMainThread __attribute__((swift_name("isMainThread")));
+__attribute__((swift_name("DbDriverKt")))
+@interface CommonCodeDbDriverKt : KotlinBase
++ (id<CommonCodeKotlinQuizDb>)createDb __attribute__((swift_name("createDb()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CoroutineUtilsKt")))
-@interface CommonCodeCoroutineUtilsKt : KotlinBase
-+ (void)generateTextSid:(NSString *)sid __attribute__((swift_name("generateText(sid:)")));
+__attribute__((swift_name("SuspendJobKt")))
+@interface CommonCodeSuspendJobKt : KotlinBase
++ (void)randomTextSid:(NSString *)sid __attribute__((swift_name("randomText(sid:)")));
 @end;
 
-__attribute__((swift_name("KotlinCoroutineContext")))
-@protocol CommonCodeKotlinCoroutineContext
-@required
-- (id _Nullable)foldInitial:(id _Nullable)initial operation:(id _Nullable (^)(id _Nullable, id<CommonCodeKotlinCoroutineContextElement>))operation __attribute__((swift_name("fold(initial:operation:)")));
-- (id<CommonCodeKotlinCoroutineContextElement> _Nullable)getKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("get(key:)")));
-- (id<CommonCodeKotlinCoroutineContext>)minusKeyKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("minusKey(key:)")));
-- (id<CommonCodeKotlinCoroutineContext>)plusContext:(id<CommonCodeKotlinCoroutineContext>)context __attribute__((swift_name("plus(context:)")));
+__attribute__((swift_name("Sqldelight_runtimeQuery")))
+@interface CommonCodeSqldelight_runtimeQuery : KotlinBase
+- (instancetype)initWithQueries:(NSMutableArray<CommonCodeSqldelight_runtimeQuery *> *)queries mapper:(id (^)(id<CommonCodeSqldelight_runtimeSqlCursor>))mapper __attribute__((swift_name("init(queries:mapper:)"))) __attribute__((objc_designated_initializer));
+- (void)addListenerListener:(id<CommonCodeSqldelight_runtimeQueryListener>)listener __attribute__((swift_name("addListener(listener:)")));
+- (id<CommonCodeSqldelight_runtimeSqlCursor>)execute __attribute__((swift_name("execute()")));
+- (NSArray<id> *)executeAsList __attribute__((swift_name("executeAsList()")));
+- (id)executeAsOne __attribute__((swift_name("executeAsOne()")));
+- (id _Nullable)executeAsOneOrNull __attribute__((swift_name("executeAsOneOrNull()")));
+- (void)notifyDataChanged __attribute__((swift_name("notifyDataChanged()")));
+- (void)removeListenerListener:(id<CommonCodeSqldelight_runtimeQueryListener>)listener __attribute__((swift_name("removeListener(listener:)")));
+@property (readonly) id (^mapper)(id<CommonCodeSqldelight_runtimeSqlCursor>) __attribute__((swift_name("mapper")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -454,10 +606,39 @@ __attribute__((swift_name("KotlinUnit")))
 + (instancetype)unit __attribute__((swift_name("init()")));
 @end;
 
-__attribute__((swift_name("KotlinCoroutineContextElement")))
-@protocol CommonCodeKotlinCoroutineContextElement <CommonCodeKotlinCoroutineContext>
+__attribute__((swift_name("Sqldelight_runtimeTransacterTransaction")))
+@interface CommonCodeSqldelight_runtimeTransacterTransaction : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)afterCommitFunction:(CommonCodeKotlinUnit *(^)(void))function __attribute__((swift_name("afterCommit(function:)")));
+- (void)afterRollbackFunction:(CommonCodeKotlinUnit *(^)(void))function __attribute__((swift_name("afterRollback(function:)")));
+- (void)endTransactionSuccessful:(BOOL)successful __attribute__((swift_name("endTransaction(successful:)")));
+- (void)rollback __attribute__((swift_name("rollback()")));
+- (void)transactionBody:(CommonCodeKotlinUnit *(^)(CommonCodeSqldelight_runtimeTransacterTransaction *))body __attribute__((swift_name("transaction(body:)")));
+@property (readonly) CommonCodeSqldelight_runtimeTransacterTransaction * _Nullable enclosingTransaction __attribute__((swift_name("enclosingTransaction")));
+@end;
+
+__attribute__((swift_name("Sqldelight_runtimeCloseable")))
+@protocol CommonCodeSqldelight_runtimeCloseable
 @required
-@property (readonly) id<CommonCodeKotlinCoroutineContextKey> key __attribute__((swift_name("key")));
+- (void)close __attribute__((swift_name("close()")));
+@end;
+
+__attribute__((swift_name("Sqldelight_runtimeSqlDriver")))
+@protocol CommonCodeSqldelight_runtimeSqlDriver <CommonCodeSqldelight_runtimeCloseable>
+@required
+- (CommonCodeSqldelight_runtimeTransacterTransaction * _Nullable)currentTransaction __attribute__((swift_name("currentTransaction()")));
+- (void)executeIdentifier:(CommonCodeInt * _Nullable)identifier sql:(NSString *)sql parameters:(int32_t)parameters binders:(CommonCodeKotlinUnit *(^ _Nullable)(id<CommonCodeSqldelight_runtimeSqlPreparedStatement>))binders __attribute__((swift_name("execute(identifier:sql:parameters:binders:)")));
+- (id<CommonCodeSqldelight_runtimeSqlCursor>)executeQueryIdentifier:(CommonCodeInt * _Nullable)identifier sql:(NSString *)sql parameters:(int32_t)parameters binders:(CommonCodeKotlinUnit *(^ _Nullable)(id<CommonCodeSqldelight_runtimeSqlPreparedStatement>))binders __attribute__((swift_name("executeQuery(identifier:sql:parameters:binders:)")));
+- (CommonCodeSqldelight_runtimeTransacterTransaction *)doNewTransaction __attribute__((swift_name("doNewTransaction()")));
+@end;
+
+__attribute__((swift_name("Sqldelight_runtimeSqlDriverSchema")))
+@protocol CommonCodeSqldelight_runtimeSqlDriverSchema
+@required
+- (void)createDriver:(id<CommonCodeSqldelight_runtimeSqlDriver>)driver __attribute__((swift_name("create(driver:)")));
+- (void)migrateDriver:(id<CommonCodeSqldelight_runtimeSqlDriver>)driver oldVersion:(int32_t)oldVersion newVersion:(int32_t)newVersion __attribute__((swift_name("migrate(driver:oldVersion:newVersion:)")));
+@property (readonly) int32_t version __attribute__((swift_name("version")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreJob")))
@@ -470,13 +651,54 @@ __attribute__((swift_name("Kotlinx_coroutines_coreJob")))
 - (CommonCodeKotlinx_coroutines_coreCancellationException *)getCancellationException __attribute__((swift_name("getCancellationException()")));
 - (id<CommonCodeKotlinx_coroutines_coreDisposableHandle>)invokeOnCompletionOnCancelling:(BOOL)onCancelling invokeImmediately:(BOOL)invokeImmediately handler:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable * _Nullable))handler __attribute__((swift_name("invokeOnCompletion(onCancelling:invokeImmediately:handler:)")));
 - (id<CommonCodeKotlinx_coroutines_coreDisposableHandle>)invokeOnCompletionHandler:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable * _Nullable))handler __attribute__((swift_name("invokeOnCompletion(handler:)")));
-- (id<CommonCodeKotlinx_coroutines_coreJob>)plusOther:(id<CommonCodeKotlinx_coroutines_coreJob>)other __attribute__((swift_name("plus(other:)")));
+- (id<CommonCodeKotlinx_coroutines_coreJob>)plusOther_:(id<CommonCodeKotlinx_coroutines_coreJob>)other __attribute__((swift_name("plus(other_:)")));
 - (BOOL)start __attribute__((swift_name("start()")));
 @property (readonly) id<CommonCodeKotlinSequence> children __attribute__((swift_name("children")));
 @property (readonly) BOOL isActive __attribute__((swift_name("isActive")));
 @property (readonly) BOOL isCancelled __attribute__((swift_name("isCancelled")));
 @property (readonly) BOOL isCompleted __attribute__((swift_name("isCompleted")));
 @property (readonly) id<CommonCodeKotlinx_coroutines_coreSelectClause0> onJoin __attribute__((swift_name("onJoin")));
+@end;
+
+__attribute__((swift_name("KotlinCoroutineContextKey")))
+@protocol CommonCodeKotlinCoroutineContextKey
+@required
+@end;
+
+__attribute__((swift_name("KotlinContinuation")))
+@protocol CommonCodeKotlinContinuation
+@required
+- (void)resumeWithResult:(id _Nullable)result __attribute__((swift_name("resumeWith(result:)")));
+@property (readonly) id<CommonCodeKotlinCoroutineContext> context __attribute__((swift_name("context")));
+@end;
+
+__attribute__((swift_name("Kotlinx_coroutines_coreRunnable")))
+@protocol CommonCodeKotlinx_coroutines_coreRunnable
+@required
+- (void)run __attribute__((swift_name("run()")));
+@end;
+
+__attribute__((swift_name("Kotlinx_coroutines_coreDisposableHandle")))
+@protocol CommonCodeKotlinx_coroutines_coreDisposableHandle
+@required
+- (void)dispose __attribute__((swift_name("dispose()")));
+@end;
+
+__attribute__((swift_name("Kotlinx_coroutines_coreCancellableContinuation")))
+@protocol CommonCodeKotlinx_coroutines_coreCancellableContinuation <CommonCodeKotlinContinuation>
+@required
+- (BOOL)cancelCause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("cancel(cause:)")));
+- (void)completeResumeToken:(id)token __attribute__((swift_name("completeResume(token:)")));
+- (void)doInitCancellability __attribute__((swift_name("doInitCancellability()")));
+- (void)invokeOnCancellationHandler:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable * _Nullable))handler __attribute__((swift_name("invokeOnCancellation(handler:)")));
+- (void)resumeValue:(id _Nullable)value onCancellation:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable *))onCancellation __attribute__((swift_name("resume(value:onCancellation:)")));
+- (id _Nullable)tryResumeValue:(id _Nullable)value idempotent:(id _Nullable)idempotent __attribute__((swift_name("tryResume(value:idempotent:)")));
+- (id _Nullable)tryResumeWithExceptionException:(CommonCodeKotlinThrowable *)exception __attribute__((swift_name("tryResumeWithException(exception:)")));
+- (void)resumeUndispatched:(CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)receiver value:(id _Nullable)value __attribute__((swift_name("resumeUndispatched(_:value:)")));
+- (void)resumeUndispatchedWithException:(CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)receiver exception:(CommonCodeKotlinThrowable *)exception __attribute__((swift_name("resumeUndispatchedWithException(_:exception:)")));
+@property (readonly) BOOL isActive __attribute__((swift_name("isActive")));
+@property (readonly) BOOL isCancelled __attribute__((swift_name("isCancelled")));
+@property (readonly) BOOL isCompleted __attribute__((swift_name("isCompleted")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -554,38 +776,42 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDecoder")))
 @property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode __attribute__((swift_name("updateMode")));
 @end;
 
-__attribute__((swift_name("KotlinAbstractCoroutineContextElement")))
-@interface CommonCodeKotlinAbstractCoroutineContextElement : KotlinBase <CommonCodeKotlinCoroutineContextElement>
-- (instancetype)initWithKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("init(key:)"))) __attribute__((objc_designated_initializer));
-@end;
-
-__attribute__((swift_name("KotlinContinuationInterceptor")))
-@protocol CommonCodeKotlinContinuationInterceptor <CommonCodeKotlinCoroutineContextElement>
-@required
-- (id<CommonCodeKotlinContinuation>)interceptContinuationContinuation:(id<CommonCodeKotlinContinuation>)continuation __attribute__((swift_name("interceptContinuation(continuation:)")));
-- (void)releaseInterceptedContinuationContinuation:(id<CommonCodeKotlinContinuation>)continuation __attribute__((swift_name("releaseInterceptedContinuation(continuation:)")));
-@end;
-
-__attribute__((swift_name("Kotlinx_coroutines_coreCoroutineDispatcher")))
-@interface CommonCodeKotlinx_coroutines_coreCoroutineDispatcher : CommonCodeKotlinAbstractCoroutineContextElement <CommonCodeKotlinContinuationInterceptor>
+__attribute__((swift_name("KotlinThrowable")))
+@interface CommonCodeKotlinThrowable : KotlinBase
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithKey:(id<CommonCodeKotlinCoroutineContextKey>)key __attribute__((swift_name("init(key:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (void)dispatchContext:(id<CommonCodeKotlinCoroutineContext>)context block:(id<CommonCodeKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("dispatch(context:block:)")));
-- (void)dispatchYieldContext:(id<CommonCodeKotlinCoroutineContext>)context block:(id<CommonCodeKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("dispatchYield(context:block:)")));
-- (BOOL)isDispatchNeededContext:(id<CommonCodeKotlinCoroutineContext>)context __attribute__((swift_name("isDispatchNeeded(context:)")));
-- (CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)plusOther_:(CommonCodeKotlinx_coroutines_coreCoroutineDispatcher *)other __attribute__((swift_name("plus(other_:)")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+- (CommonCodeKotlinArray *)getStackTrace __attribute__((swift_name("getStackTrace()")));
+- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
+@property (readonly) CommonCodeKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
+@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
 @end;
 
-__attribute__((swift_name("KotlinCoroutineContextKey")))
-@protocol CommonCodeKotlinCoroutineContextKey
+__attribute__((swift_name("Sqldelight_runtimeSqlCursor")))
+@protocol CommonCodeSqldelight_runtimeSqlCursor <CommonCodeSqldelight_runtimeCloseable>
 @required
+- (CommonCodeKotlinByteArray * _Nullable)getBytesIndex:(int32_t)index __attribute__((swift_name("getBytes(index:)")));
+- (CommonCodeDouble * _Nullable)getDoubleIndex:(int32_t)index __attribute__((swift_name("getDouble(index:)")));
+- (CommonCodeLong * _Nullable)getLongIndex:(int32_t)index __attribute__((swift_name("getLong(index:)")));
+- (NSString * _Nullable)getStringIndex:(int32_t)index __attribute__((swift_name("getString(index:)")));
+- (BOOL)next_ __attribute__((swift_name("next()")));
 @end;
 
-__attribute__((swift_name("Kotlinx_coroutines_coreDisposableHandle")))
-@protocol CommonCodeKotlinx_coroutines_coreDisposableHandle
+__attribute__((swift_name("Sqldelight_runtimeQueryListener")))
+@protocol CommonCodeSqldelight_runtimeQueryListener
 @required
-- (void)dispose __attribute__((swift_name("dispose()")));
+- (void)queryResultsChanged __attribute__((swift_name("queryResultsChanged()")));
+@end;
+
+__attribute__((swift_name("Sqldelight_runtimeSqlPreparedStatement")))
+@protocol CommonCodeSqldelight_runtimeSqlPreparedStatement
+@required
+- (void)bindBytesIndex:(int32_t)index value:(CommonCodeKotlinByteArray * _Nullable)value __attribute__((swift_name("bindBytes(index:value:)")));
+- (void)bindDoubleIndex:(int32_t)index value:(CommonCodeDouble * _Nullable)value __attribute__((swift_name("bindDouble(index:value:)")));
+- (void)bindLongIndex:(int32_t)index value:(CommonCodeLong * _Nullable)value __attribute__((swift_name("bindLong(index:value:)")));
+- (void)bindStringIndex:(int32_t)index value:(NSString * _Nullable)value __attribute__((swift_name("bindString(index:value:)")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreChildHandle")))
@@ -598,19 +824,6 @@ __attribute__((swift_name("Kotlinx_coroutines_coreChildJob")))
 @protocol CommonCodeKotlinx_coroutines_coreChildJob <CommonCodeKotlinx_coroutines_coreJob>
 @required
 - (void)parentCancelledParentJob:(id<CommonCodeKotlinx_coroutines_coreParentJob>)parentJob __attribute__((swift_name("parentCancelled(parentJob:)")));
-@end;
-
-__attribute__((swift_name("KotlinThrowable")))
-@interface CommonCodeKotlinThrowable : KotlinBase
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-- (CommonCodeKotlinArray *)getStackTrace __attribute__((swift_name("getStackTrace()")));
-- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
-@property (readonly) CommonCodeKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
-@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
 @end;
 
 __attribute__((swift_name("KotlinException")))
@@ -665,7 +878,7 @@ __attribute__((swift_name("KotlinIterator")))
 @protocol CommonCodeKotlinIterator
 @required
 - (BOOL)hasNext __attribute__((swift_name("hasNext()")));
-- (id _Nullable)next_ __attribute__((swift_name("next()")));
+- (id _Nullable)next__ __attribute__((swift_name("next_()")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_runtime_nativeCompositeEncoder")))
@@ -778,17 +991,17 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeUpdateMode")))
 - (int32_t)compareToOther:(CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *)other __attribute__((swift_name("compareTo(other:)")));
 @end;
 
-__attribute__((swift_name("KotlinContinuation")))
-@protocol CommonCodeKotlinContinuation
-@required
-- (void)resumeWithResult:(id _Nullable)result __attribute__((swift_name("resumeWith(result:)")));
-@property (readonly) id<CommonCodeKotlinCoroutineContext> context __attribute__((swift_name("context")));
-@end;
-
-__attribute__((swift_name("Kotlinx_coroutines_coreRunnable")))
-@protocol CommonCodeKotlinx_coroutines_coreRunnable
-@required
-- (void)run __attribute__((swift_name("run()")));
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinByteArray")))
+@interface CommonCodeKotlinByteArray : KotlinBase
++ (instancetype)arrayWithSize:(int32_t)size __attribute__((swift_name("init(size:)")));
++ (instancetype)arrayWithSize:(int32_t)size init:(CommonCodeByte *(^)(CommonCodeInt *))init __attribute__((swift_name("init(size:init:)")));
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (int8_t)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
+- (CommonCodeKotlinByteIterator *)iterator __attribute__((swift_name("iterator()")));
+- (void)setIndex:(int32_t)index value:(int8_t)value __attribute__((swift_name("set(index:value:)")));
+@property (readonly) int32_t size __attribute__((swift_name("size")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreParentJob")))
@@ -847,6 +1060,14 @@ __attribute__((swift_name("KotlinKClass")))
 - (BOOL)isInstanceValue:(id _Nullable)value __attribute__((swift_name("isInstance(value:)")));
 @property (readonly) NSString * _Nullable qualifiedName __attribute__((swift_name("qualifiedName")));
 @property (readonly) NSString * _Nullable simpleName __attribute__((swift_name("simpleName")));
+@end;
+
+__attribute__((swift_name("KotlinByteIterator")))
+@interface CommonCodeKotlinByteIterator : KotlinBase <CommonCodeKotlinIterator>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (CommonCodeByte *)next__ __attribute__((swift_name("next_()")));
+- (int8_t)nextByte __attribute__((swift_name("nextByte()")));
 @end;
 
 __attribute__((swift_name("Kotlinx_coroutines_coreAtomicDesc")))

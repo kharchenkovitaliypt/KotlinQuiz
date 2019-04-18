@@ -23,18 +23,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        CoroutineUtilsKt.generateText(sid: "Catty")
+
+        SuspendJobKt.randomText(sid: "12345")
         
         let quizService = QuizService(assetService: AssetService())
         self.viewModel = QuizViewModel(quizService: quizService)
         
-        viewModel!.totalPointsLiveData.observe {
+        viewModel.totalPointsLiveData.observe {
             self.totalPoints.text = "Total points: \($0)"
             return KotlinUnit()
         }
-        
-        viewModel!.questionStateLiveData.observe {
+        viewModel.questionStateLiveData.observe {
             let state = $0
             switch state {
             case let valueState as QuestionState.Value:
@@ -53,8 +52,8 @@ class ViewController: UIViewController {
         switch question {
         case is InputQuestion:
             input.text = ""
-        case is OptQuestion:
-            let answers = (question as! OptQuestion).answers
+        case let optQuestion as OptQuestion:
+            let answers = optQuestion.answers
             selectedAnswer = answers.randomElement()!
             input.text = answers
                 .map { "- " + $0.content + ($0 === selectedAnswer ? "*" : "") }

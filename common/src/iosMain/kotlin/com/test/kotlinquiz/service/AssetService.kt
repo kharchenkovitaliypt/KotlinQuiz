@@ -1,14 +1,15 @@
 package com.test.kotlinquiz.service
 
+import com.test.kotlinquiz.coroutines.suspendJob
 import platform.Foundation.NSBundle
 import platform.Foundation.NSString
 import platform.Foundation.stringWithContentsOfFile
 
 actual class AssetService {
 
-    actual suspend fun fetch(name: String): String {
+    actual suspend fun fetch(name: String): String = suspendJob({}) {
         val path = NSBundle.mainBundle().pathForResource(name, null)
-        return NSString.stringWithContentsOfFile(path!!) as String
+        NSString.stringWithContentsOfFile(path!!) as String
     }
 }
 

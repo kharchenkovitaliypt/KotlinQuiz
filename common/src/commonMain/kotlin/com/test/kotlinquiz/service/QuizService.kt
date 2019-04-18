@@ -1,14 +1,14 @@
 package com.test.kotlinquiz.service
 
+import co.touchlab.stately.freeze
+import com.soywiz.klock.DateTime
 import com.test.kotlinquiz.data.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import kotlinx.io.core.readText
-import kotlinx.io.core.use
+import com.test.kotlinquiz.utils.logd
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.content
+import kotlin.random.Random
 
 class QuizService(
     private val assetService: AssetService
@@ -18,6 +18,8 @@ class QuizService(
         val value: Any
     )
 
+    private val dbService = DbService()
+
     @UseExperimental(UnstableDefault::class)
     private val jsonParser = Json.nonstrict
     private var questions: Map<ID, Question>? = null
@@ -26,6 +28,11 @@ class QuizService(
     private var totalPoints: Points = 0
 
     suspend fun startQuiz(): Question {
+//        val time = DateTime.now()
+//        val dbQuestions = dbService.getQuestions()
+//        val spent = (DateTime.now() - time).millisecondsLong
+//        logd("|Db questions: " + dbQuestions.size + ", spent: $spent")
+
         if (answers.isNotEmpty()) {
             throw IllegalStateException("Quiz is already started")
         }
@@ -33,6 +40,13 @@ class QuizService(
     }
 
     suspend fun processAnswer(question: Question, answer: Any): AnswerResult {
+//        dbService.insertQuestion(
+//            QuestionImpl(
+//                question.id + Random.nextInt(),
+//                question.text
+//            ).freeze()
+//        )
+
         answers.add(InnerAnswer(question, answer))
 
         val (nextQ, totalPoints) = when(question) {
@@ -50,13 +64,12 @@ class QuizService(
 
     private suspend fun getAllQuestions(): Map<ID, Question> {
         if (questions == null) {
-            // withContext(Dispatchers.Default) { // TODO Implement Default for IOS
-                val json = assetService.fetch("quiz.json")
+            val json = assetService.fetch("quiz.json")
+
             questions = jsonParser.parseJson(json).jsonArray
                     .map { el -> toQuestion(el.jsonObject) }
                     .map { q ->  q.id to q }
                     .toMap()
-//            }
         }
         return questions!!
     }

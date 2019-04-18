@@ -33,8 +33,8 @@
 
 /* Begin PBXFileReference section */
 		52278AB1225CA37600486326 /* KotlinQuizIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KotlinQuizIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52278AB4225CA37600486326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52278AB6225CA37600486326 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52278AB4225CA37600486326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		52278AB6225CA37600486326 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		52278AB9225CA37600486326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52278ABB225CA37700486326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52278ABE225CA37700486326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364493E5685119BE75E222E5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				52278AB4225CA37600486326 /* AppDelegate.swift */,
+				52278AB6225CA37600486326 /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		52278AA8225CA37600486326 = {
 			isa = PBXGroup;
 			children = (
@@ -76,12 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				52278ACE225CDECE00486326 /* Resources */,
-				52278AB4225CA37600486326 /* AppDelegate.swift */,
-				52278AB6225CA37600486326 /* ViewController.swift */,
 				52278AB8225CA37600486326 /* Main.storyboard */,
 				52278ABB225CA37700486326 /* Assets.xcassets */,
 				52278ABD225CA37700486326 /* LaunchScreen.storyboard */,
 				52278AC0225CA37700486326 /* Info.plist */,
+				364493E5685119BE75E222E5 /* Sources */,
 			);
 			path = KotlinQuizIOS;
 			sourceTree = "<group>";
