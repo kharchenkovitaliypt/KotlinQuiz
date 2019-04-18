@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        SuspendJobKt.randomText(sid: "12345")
+        SuspendJobKt.randomText(sid: "12345")
         
         let quizService = QuizService(assetService: AssetService())
         self.viewModel = QuizViewModel(quizService: quizService)
