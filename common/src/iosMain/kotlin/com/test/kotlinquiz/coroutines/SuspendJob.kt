@@ -30,13 +30,8 @@ actual suspend inline fun <P, R> suspendJob(
 ): R = suspendCoroutine { continuation ->
     val param = producer.invoke()
     doJob(
-        local = continuation,
         job = { job(param) },
-        consume = { cont, result ->
-            cont.resume(result)
-        },
-        fail = { cont, error ->
-            cont.resumeWithException(error)
-        }
+        consume = continuation::resume,
+        fail = continuation::resumeWithException
     )
 }

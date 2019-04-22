@@ -1,0 +1,5 @@
+language = Objective-C
+package = com.test.kotlinquiz.myframework
+
+headers = Headers/myFramework.h
+

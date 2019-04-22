@@ -533,7 +533,7 @@ __attribute__((swift_name("ThreadInfoKt")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("RunOnKt")))
 @interface CommonCodeRunOnKt : KotlinBase
-+ (void)doJobLocal:(id _Nullable)local jobQueue:(NSObject * _Nullable)jobQueue job:(id _Nullable (^)(void))job consume:(CommonCodeKotlinUnit *(^)(id _Nullable, id _Nullable))consume fail:(CommonCodeKotlinUnit *(^)(id _Nullable, CommonCodeKotlinThrowable *))fail __attribute__((swift_name("doJob(local:jobQueue:job:consume:fail:)")));
++ (void)doJobJobQueue:(NSObject * _Nullable)jobQueue job:(id _Nullable (^)(void))job consume:(CommonCodeKotlinUnit *(^)(id _Nullable))consume fail:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable *))fail __attribute__((swift_name("doJob(jobQueue:job:consume:fail:)")));
 + (void)runOnQueue:(NSObject * _Nullable)queue block:(CommonCodeKotlinUnit *(^)(void))block __attribute__((swift_name("runOn(queue:block:)")));
 @property (class, readonly) NSObject * _Nullable globalQueue __attribute__((swift_name("globalQueue")));
 @property (class, readonly) NSObject * _Nullable mainQueue __attribute__((swift_name("mainQueue")));

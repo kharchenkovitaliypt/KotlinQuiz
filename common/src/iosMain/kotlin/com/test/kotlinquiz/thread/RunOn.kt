@@ -12,36 +12,36 @@ val globalQueue: dispatch_queue_t get() {
 }
 val mainQueue: dispatch_queue_t get() = dispatch_get_main_queue()
 
-inline fun <reified L, R> doJob(
-    local: L,
+inline fun <R> doJob(
     jobQueue: dispatch_queue_t = globalQueue,
     crossinline job: () -> R,
-    crossinline consume: (L, R) -> Unit,
-    crossinline fail: (L, Throwable) -> Unit
+    noinline consume: (R) -> Unit,
+    noinline fail: (Throwable) -> Unit
 ) {
     assertMainThread()
-    val localRef = DetachedObjectGraph(TransferMode.UNSAFE) { local }
+    val callbacksRef = DetachedObjectGraph(TransferMode.UNSAFE) {
+        consume to fail
+    }
 
     runOn(jobQueue) {
         try {
             val result = job()
 
             runOn(mainQueue) {
-                consume(localRef.attach(), result)
+                val (consumeBlock, _) = callbacksRef.attach()
+                consumeBlock(result)
             }
         } catch (error: Throwable) {
             error.freeze()
             runOn(mainQueue) {
-                fail(localRef.attach(), error)
+                val (_, failBlock) = callbacksRef.attach()
+                failBlock(error)
             }
         }
     }
 }
 
-inline fun runOn(
-    queue: dispatch_queue_t,
-    crossinline block: () -> Unit
-) {
+inline fun runOn(queue: dispatch_queue_t, crossinline block: () -> Unit) {
     // Clean up accidental references
     val blockGraph = DetachedObjectGraph {
         { block() }

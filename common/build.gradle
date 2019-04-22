@@ -30,6 +30,16 @@ kotlin {
             binaries {
                 framework(frameworkName)
             }
+            compilations.main {
+                cinterops {
+                    myFramework {
+                        includeDirs "/Users/test/Library/Caches/AppCode2019.1/DerivedData" +
+                                "/myFramework-bjvyjyjnjglmmpflmzavfrxptklz" +
+                                "/Build/Products/Debug-iphonesimulator/myFramework.framework"
+                        defFile = file("/Users/test/Projects/KotlinQuiz/common/src/iosMain/cinterop/myFramework.def")
+                    }
+                }
+            }
         }
     }
     sourceSets {
@@ -41,7 +51,8 @@ kotlin {
                 api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlinx_serialization_version"
 
                 api "com.soywiz:klock-metadata:$klock_version"
-                api 'co.touchlab:stately:0.7.0'
+//                api 'co.touchlab:stately:0.7.0'
+
 //                api "io.ktor:ktor-client-core:$ktor_version"
 //                api "io.ktor:ktor-client-json:$ktor_version"
             }
