@@ -6,13 +6,11 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
-import kotlin.native.concurrent.TransferMode
-import kotlin.native.concurrent.Worker
 import kotlin.native.concurrent.attach
 
 data class MyData(var value: Int)
 
-fun randomText(sid: String) {
+fun randomTextSample(sid: String) {
 
     GlobalScope.launch(mainDispatcher) {
 
@@ -37,27 +35,24 @@ actual suspend inline fun <reified T, reified R> suspendJob(
     crossinline job: (T) -> R
 ): R = suspendCoroutine { continuation ->
 
-    Worker.start(errorReporting = true).execute(
-        TransferMode.SAFE,
-        {
-            ({ param: T -> job(param) }) to producer()
-        },
-        { (job, param) -> job(param) }
-    ).consumeOnMain { result ->
-        result.fold(
-            onSuccess = continuation::resume,
-            onFailure = continuation::resumeWithException
-        )
-    }
+    val param = detach(producer)
+    doJob(
+        job = { job(param.attach()) },
+        onSuccess = continuation::resume,
+        onFailure = continuation::resumeWithException
+    )
 
-//    val param = detach(producer)
-//    doJob(
-//        job = { job(param.attach()) },
-//        consume = { result ->
-//            result.fold(
-//                onSuccess = continuation::resume,
-//                onFailure = continuation::resumeWithException
-//            )
-//        }
+//    val worker = Worker.start()
+//    val future = worker.execute(
+//        TransferMode.SAFE,
+//        {
+//            val args = producer()
+//            ({ job(args) })
+//        },
+//        { job -> runCatching(job) }
+//    )
+//    future.consumeOnMain(
+//        onSuccess = continuation::resume,
+//        onFailure = continuation::resumeWithException
 //    )
 }

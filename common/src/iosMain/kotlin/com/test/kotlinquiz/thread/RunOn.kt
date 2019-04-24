@@ -18,9 +18,20 @@ val mainQueue: DQueue get() = dispatch_get_main_queue()
 inline fun <T> doJob(
     jobQueue: DQueue = globalQueue,
     crossinline job: () -> T,
+    noinline onSuccess: (T) -> Unit,
+    noinline onFailure: (Throwable) -> Unit
+) {
+    doJob(jobQueue, job) { result ->
+        result.fold(onSuccess, onFailure)
+    }
+}
+
+inline fun <T> doJob(
+    jobQueue: DQueue = globalQueue,
+    crossinline job: () -> T,
     noinline consume: (Result<T>) -> Unit
 ) {
-    assert(isMainThread)
+    assertIsMainThread()
 
     val onResult = { result: DAG<Result<T>> ->
         consume(result.attach())
@@ -35,8 +46,21 @@ inline fun <T> doJob(
     }
 }
 
-fun <T> Future<T>.consumeOnMain(block: (Result<T>) -> Unit) {
-    doJob(globalQueue, job = { result }, consume = block)
+fun <T> Future<Result<T>>.consumeOnMain(
+    onSuccess: (T) -> Unit,
+    onFailure: (Throwable) -> Unit
+) {
+    consumeOnMain { result ->
+        result.fold(onSuccess, onFailure)
+    }
+}
+
+fun <T> Future<Result<T>>.consumeOnMain(block: (Result<T>) -> Unit) {
+    doJob(
+        jobQueue = globalQueue,
+        job = { result.getOrThrow() },
+        consume = block
+    )
 }
 
 fun <T> ((T) -> Unit).asContinuationOnMain(): Continuation1<T> {
@@ -44,7 +68,7 @@ fun <T> ((T) -> Unit).asContinuationOnMain(): Continuation1<T> {
         dispatch_sync_f(mainQueue, pointer, staticCFunction { pointerOnMain ->
             pointerOnMain!!.callContinuation1<T>()
         })
-    })
+    }, singleShot = true)
 }
 
 inline fun executeAsync(queue: DQueue, crossinline block: () -> Unit) {

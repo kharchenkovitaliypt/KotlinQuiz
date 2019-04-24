@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
         print("MyData: \(data)")
 
-        SuspendJobKt.randomText(sid: "12345")
+        SuspendJobKt.randomTextSample(sid: "12345")
         
         let quizService = QuizService(assetService: AssetService())
         self.viewModel = QuizViewModel(quizService: quizService)
