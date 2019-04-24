@@ -1,11 +1,11 @@
 package com.test.kotlinquiz.coroutines
 
-expect suspend inline fun <P, R> suspendJob(
-    crossinline producer: () -> P,
-    crossinline job: (P) -> R
+expect suspend inline fun <reified T, reified R> suspendJob(
+    noinline producer: () -> T,
+    crossinline job: (T) -> R
 ): R
 
-suspend inline fun <R> suspendJob(
+suspend inline fun <reified R> suspendJob(
     crossinline job: (Unit) -> R
 ): R {
     return suspendJob({}, job)

@@ -10,9 +10,9 @@ import kotlin.coroutines.suspendCoroutine
 @PublishedApi
 internal val threadPool = Executors.newCachedThreadPool()
 
-actual suspend inline fun <P, R> suspendJob(
-    crossinline producer: () -> P,
-    crossinline job: (P) -> R
+actual suspend inline fun <reified T, reified R> suspendJob(
+    noinline producer: () -> T,
+    crossinline job: (T) -> R
 ): R  = suspendCoroutine { continuation ->
 
     val param = producer.invoke()

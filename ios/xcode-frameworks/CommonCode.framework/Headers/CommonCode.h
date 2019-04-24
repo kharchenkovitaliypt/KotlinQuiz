@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class CommonCodeDbQuestionImpl, CommonCodeSqldelight_runtimeQuery, CommonCodeKotlinUnit, CommonCodeSqldelight_runtimeTransacterTransaction, CommonCodeKotlinQuizDbCompanion, CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeQuestionImpl, CommonCodeDbService, CommonCodeMainDispatcher, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, NSObject, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinByteArray, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinByteIterator, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
+@class CommonCodeDbQuestionImpl, CommonCodeSqldelight_runtimeQuery, CommonCodeKotlinUnit, CommonCodeSqldelight_runtimeTransacterTransaction, CommonCodeKotlinQuizDbCompanion, CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodeAssetService, CommonCodeQuestionImpl, CommonCodeDbService, CommonCodeMainDispatcher, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeMyData, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, NSObject, CommonCodeKotlinDetachedObjectGraph, CommonCodeKotlinThrowable, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinTransferMode, CommonCodeKotlinByteArray, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinByteIterator, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
 
 @protocol CommonCodeDbQuestion, CommonCodeDbQuestionQueries, CommonCodeSqldelight_runtimeTransacter, CommonCodeKotlinQuizDb, CommonCodeSqldelight_runtimeSqlDriver, CommonCodeSqldelight_runtimeSqlDriverSchema, CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeQuestion, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreDelay, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinx_coroutines_coreCancellableContinuation, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeSqldelight_runtimeSqlCursor, CommonCodeSqldelight_runtimeQueryListener, CommonCodeSqldelight_runtimeSqlPreparedStatement, CommonCodeSqldelight_runtimeCloseable, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
 
@@ -351,6 +351,15 @@ __attribute__((swift_name("MainDispatcher")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MyData")))
+@interface CommonCodeMyData : KotlinBase
+- (instancetype)initWithValue:(int32_t)value __attribute__((swift_name("init(value:)"))) __attribute__((objc_designated_initializer));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (CommonCodeMyData *)doCopyValue:(int32_t)value __attribute__((swift_name("doCopy(value:)")));
+@property int32_t value __attribute__((swift_name("value")));
+@end;
+
 __attribute__((swift_name("Answer")))
 @protocol CommonCodeAnswer
 @required
@@ -533,8 +542,12 @@ __attribute__((swift_name("ThreadInfoKt")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("RunOnKt")))
 @interface CommonCodeRunOnKt : KotlinBase
-+ (void)doJobJobQueue:(NSObject * _Nullable)jobQueue job:(id _Nullable (^)(void))job consume:(CommonCodeKotlinUnit *(^)(id _Nullable))consume fail:(CommonCodeKotlinUnit *(^)(CommonCodeKotlinThrowable *))fail __attribute__((swift_name("doJob(jobQueue:job:consume:fail:)")));
-+ (void)runOnQueue:(NSObject * _Nullable)queue block:(CommonCodeKotlinUnit *(^)(void))block __attribute__((swift_name("runOn(queue:block:)")));
++ (void)doJobJobQueue:(NSObject * _Nullable)jobQueue job:(id _Nullable (^)(void))job consume:(CommonCodeKotlinUnit *(^)(id _Nullable))consume __attribute__((swift_name("doJob(jobQueue:job:consume:)")));
++ (void)consumeOnMain:(int32_t)receiver block:(CommonCodeKotlinUnit *(^)(id _Nullable))block __attribute__((swift_name("consumeOnMain(_:block:)")));
++ (CommonCodeKotlinUnit *(^)(id _Nullable))asContinuationOnMain:(CommonCodeKotlinUnit *(^)(id _Nullable))receiver __attribute__((swift_name("asContinuationOnMain(_:)")));
++ (void)executeAsyncQueue:(NSObject * _Nullable)queue block:(CommonCodeKotlinUnit *(^)(void))block __attribute__((swift_name("executeAsync(queue:block:)")));
++ (CommonCodeKotlinDetachedObjectGraph *)detachProducer:(id _Nullable (^)(void))producer __attribute__((swift_name("detach(producer:)")));
++ (id _Nullable)attachPointer:(void *)pointer __attribute__((swift_name("attach(pointer:)")));
 @property (class, readonly) NSObject * _Nullable globalQueue __attribute__((swift_name("globalQueue")));
 @property (class, readonly) NSObject * _Nullable mainQueue __attribute__((swift_name("mainQueue")));
 @end;
@@ -754,17 +767,12 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeDecoder")))
 @property (readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *updateMode __attribute__((swift_name("updateMode")));
 @end;
 
-__attribute__((swift_name("KotlinThrowable")))
-@interface CommonCodeKotlinThrowable : KotlinBase
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-- (CommonCodeKotlinArray *)getStackTrace __attribute__((swift_name("getStackTrace()")));
-- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
-@property (readonly) CommonCodeKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
-@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinDetachedObjectGraph")))
+@interface CommonCodeKotlinDetachedObjectGraph : KotlinBase
+- (instancetype)initWithMode:(CommonCodeKotlinTransferMode *)mode producer:(id _Nullable (^)(void))producer __attribute__((swift_name("init(mode:producer:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPointer:(void *)pointer __attribute__((swift_name("init(pointer:)"))) __attribute__((objc_designated_initializer));
+- (void *)asCPointer __attribute__((swift_name("asCPointer()")));
 @end;
 
 __attribute__((swift_name("Sqldelight_runtimeSqlCursor")))
@@ -802,6 +810,19 @@ __attribute__((swift_name("Kotlinx_coroutines_coreChildJob")))
 @protocol CommonCodeKotlinx_coroutines_coreChildJob <CommonCodeKotlinx_coroutines_coreJob>
 @required
 - (void)parentCancelledParentJob:(id<CommonCodeKotlinx_coroutines_coreParentJob>)parentJob __attribute__((swift_name("parentCancelled(parentJob:)")));
+@end;
+
+__attribute__((swift_name("KotlinThrowable")))
+@interface CommonCodeKotlinThrowable : KotlinBase
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(CommonCodeKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+- (CommonCodeKotlinArray *)getStackTrace __attribute__((swift_name("getStackTrace()")));
+- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
+@property (readonly) CommonCodeKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
+@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
 @end;
 
 __attribute__((swift_name("KotlinException")))
@@ -967,6 +988,18 @@ __attribute__((swift_name("Kotlinx_serialization_runtime_nativeUpdateMode")))
 @property (class, readonly) CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *update __attribute__((swift_name("update")));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (int32_t)compareToOther:(CommonCodeKotlinx_serialization_runtime_nativeUpdateMode *)other __attribute__((swift_name("compareTo(other:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinTransferMode")))
+@interface CommonCodeKotlinTransferMode : CommonCodeKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) CommonCodeKotlinTransferMode *safe __attribute__((swift_name("safe")));
+@property (class, readonly) CommonCodeKotlinTransferMode *unsafe __attribute__((swift_name("unsafe")));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(CommonCodeKotlinTransferMode *)other __attribute__((swift_name("compareTo(other:)")));
+@property (readonly) int32_t value __attribute__((swift_name("value")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

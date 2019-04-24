@@ -1,53 +1,65 @@
 package com.test.kotlinquiz.thread
 
+import kotlinx.cinterop.COpaquePointer
+import kotlinx.cinterop.staticCFunction
 import platform.darwin.*
-import kotlin.native.concurrent.DetachedObjectGraph
-import kotlin.native.concurrent.TransferMode
-import kotlin.native.concurrent.attach
-import kotlin.native.concurrent.freeze
+import kotlin.native.concurrent.*
 
-val globalQueue: dispatch_queue_t get() {
+private typealias DQueue = dispatch_queue_t
+
+private typealias DAG<T> = DetachedObjectGraph<T>
+
+val globalQueue: DQueue get() {
     val priority = DISPATCH_QUEUE_PRIORITY_DEFAULT.toLong()
     return dispatch_get_global_queue(priority, 0)
 }
-val mainQueue: dispatch_queue_t get() = dispatch_get_main_queue()
+val mainQueue: DQueue get() = dispatch_get_main_queue()
 
-inline fun <R> doJob(
-    jobQueue: dispatch_queue_t = globalQueue,
-    crossinline job: () -> R,
-    noinline consume: (R) -> Unit,
-    noinline fail: (Throwable) -> Unit
+inline fun <T> doJob(
+    jobQueue: DQueue = globalQueue,
+    crossinline job: () -> T,
+    noinline consume: (Result<T>) -> Unit
 ) {
-    assertMainThread()
-    val callbacksRef = DetachedObjectGraph(TransferMode.UNSAFE) {
-        consume to fail
+    assert(isMainThread)
+
+    val onResult = { result: DAG<Result<T>> ->
+        consume(result.attach())
     }
+    val onResultCont = onResult.asContinuationOnMain()
 
-    runOn(jobQueue) {
-        try {
-            val result = job()
-
-            runOn(mainQueue) {
-                val (consumeBlock, _) = callbacksRef.attach()
-                consumeBlock(result)
-            }
-        } catch (error: Throwable) {
-            error.freeze()
-            runOn(mainQueue) {
-                val (_, failBlock) = callbacksRef.attach()
-                failBlock(error)
-            }
+    executeAsync(jobQueue) {
+        val result = detach {
+            runCatching(job)
         }
+        onResultCont(result)
     }
 }
 
-inline fun runOn(queue: dispatch_queue_t, crossinline block: () -> Unit) {
-    // Clean up accidental references
-    val blockGraph = DetachedObjectGraph {
-        { block() }
-    }
-    dispatch_async(queue, {
-        initRuntimeIfNeeded()
-        blockGraph.attach().invoke()
-    }.freeze())
+fun <T> Future<T>.consumeOnMain(block: (Result<T>) -> Unit) {
+    doJob(globalQueue, job = { result }, consume = block)
 }
+
+fun <T> ((T) -> Unit).asContinuationOnMain(): Continuation1<T> {
+    return Continuation1(this, staticCFunction { pointer ->
+        dispatch_sync_f(mainQueue, pointer, staticCFunction { pointerOnMain ->
+            pointerOnMain!!.callContinuation1<T>()
+        })
+    })
+}
+
+inline fun executeAsync(queue: DQueue, crossinline block: () -> Unit) {
+    dispatch_async_f(
+        queue,
+        detach { { block() } }.asCPointer(),
+        staticCFunction { pointer ->
+            initRuntimeIfNeeded()
+            attach<() -> Unit>(pointer!!).invoke()
+        }
+    )
+}
+
+fun <T> detach(producer: () -> T)
+        = DetachedObjectGraph { producer() }
+
+inline fun <reified T> attach(pointer: COpaquePointer): T
+        = DetachedObjectGraph<T>(pointer).attach()
