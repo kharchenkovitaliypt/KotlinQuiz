@@ -32,10 +32,10 @@ class QuizActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, QuizViewModelFactory(assets))
             .get(QuizViewModel::class.java)
 
-        viewModel.totalPointsLiveData.observe(this) { totalPoints ->
+        viewModel.totalPoints.observe(this) { totalPoints ->
             view.totalPoints.text = "Total points: $totalPoints"
         }
-        viewModel.questionStateLiveData.observe(this) {
+        viewModel.questionState.observe(this) {
             when (it) {
                 is QuestionState.Value -> showQuestion(it.value)
                 is QuestionState.Done -> showDone(it.totalPoints)
@@ -43,8 +43,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         view.next.setOnClickListener {
-            val fragment = supportFragmentManager.findFragmentById(R.id.container)
-            when (fragment) {
+            when (val fragment = supportFragmentManager.findFragmentById(R.id.container)) {
                 is OptQuestionFragment -> {
                     fragment.validateAndGetAnswer()?.let {
                         viewModel.processAnswer(it)
@@ -72,7 +71,7 @@ class QuizActivity : AppCompatActivity() {
         val fragment = when (question) {
             is OptQuestion -> OptQuestionFragment.newInstance(question)
             is InputQuestion -> InputQuestionFragment.newInstance(question)
-            else -> throw IllegalArgumentException()
+            else -> throw RuntimeException()
         }
         supportFragmentManager.replace(R.id.container, fragment)
     }

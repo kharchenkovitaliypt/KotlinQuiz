@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #include <time.h>
+//#include "ObjcData.h"
 
 //! Project version number for myFramework.
 FOUNDATION_EXPORT double myFrameworkVersionNumber;
@@ -22,4 +23,3 @@ FOUNDATION_EXPORT char* getMyCurrentTimeText() {
 }
 
 // In this header, you should import all the public headers of your framework using statements like #import <myFramework/PublicHeader.h>
-

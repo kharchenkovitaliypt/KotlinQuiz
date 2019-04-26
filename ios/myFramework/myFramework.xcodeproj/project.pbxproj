@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		36449428F7D3F5691461D715 /* myFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 36449C6C511210E8704E0C4D /* myFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36449867BB5AC0C87116D481 /* ObjcData.m in Sources */ = {isa = PBXBuildFile; fileRef = 36449DE6E9EF5E405B8FF7B4 /* ObjcData.m */; };
+		36449C72496104D35ADAFFF9 /* ObjcData.h in Headers */ = {isa = PBXBuildFile; fileRef = 36449A4545382361D3D453B0 /* ObjcData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36449E0CF0FA0BE4C1D4A2BE /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364498A9AE55033D944ECC07 /* SwiftData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		36449421C5F4357514725754 /* myFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = myFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36449819E299051941115D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		364498A9AE55033D944ECC07 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
+		36449A4545382361D3D453B0 /* ObjcData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcData.h; sourceTree = "<group>"; };
 		36449C6C511210E8704E0C4D /* myFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myFramework.h; sourceTree = "<group>"; };
+		36449DE6E9EF5E405B8FF7B4 /* ObjcData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,9 @@
 			children = (
 				36449819E299051941115D63 /* Info.plist */,
 				36449C6C511210E8704E0C4D /* myFramework.h */,
+				364498A9AE55033D944ECC07 /* SwiftData.swift */,
+				36449DE6E9EF5E405B8FF7B4 /* ObjcData.m */,
+				36449A4545382361D3D453B0 /* ObjcData.h */,
 			);
 			path = myFramework;
 			sourceTree = "<group>";
@@ -60,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36449428F7D3F5691461D715 /* myFramework.h in Headers */,
+				36449C72496104D35ADAFFF9 /* ObjcData.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +101,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					36449679CE80F078C10B63E2 = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = 36449EEE48F0868972BDB774 /* Build configuration list for PBXProject "myFramework" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -124,6 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36449E0CF0FA0BE4C1D4A2BE /* SwiftData.swift in Sources */,
+				36449867BB5AC0C87116D481 /* ObjcData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +150,8 @@
 		364492E88376915FA9B88981 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -145,6 +164,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RightSide.myFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -198,6 +218,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = myFramework;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -208,6 +229,8 @@
 		3644995C73BB036D9F58DFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -220,6 +243,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RightSide.myFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -280,6 +305,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = myFramework;
 				SDKROOT = iphoneos;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

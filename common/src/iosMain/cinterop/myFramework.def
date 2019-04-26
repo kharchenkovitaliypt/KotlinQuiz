@@ -1,5 +1,5 @@
 language = Objective-C
 package = com.test.kotlinquiz.myframework
 
-headers = Headers/myFramework.h
+headers = Headers/myFramework.h Headers/myFramework-Swift.h Headers/ObjcData.h
 

@@ -15,10 +15,6 @@ android {
     compileSdkVersion 28
 }
 
-//configurations {
-//    compileClasspath
-//}
-
 kotlin {
     targets {
         android()
@@ -30,19 +26,25 @@ kotlin {
             binaries {
                 framework(frameworkName)
             }
+
             compilations.main {
-                cinterops {
-                    myFramework {
-                        includeDirs "/Users/test/Library/Caches/AppCode2019.1/DerivedData" +
-                                "/myFramework-bjvyjyjnjglmmpflmzavfrxptklz" +
-                                "/Build/Products/Debug-iphonesimulator/myFramework.framework"
-                        defFile = file("/Users/test/Projects/KotlinQuiz/common/src/iosMain/cinterop/myFramework.def")
-                    }
-                }
+                extraOpts "-Xobjc-generics"
             }
+//            compilations.main {
+//                cinterops {
+//                    myFramework {
+//                        includeDirs "/Users/test/Library/Caches/AppCode2019.1/DerivedData" +
+//                                "/myFramework-bjvyjyjnjglmmpflmzavfrxptklz" +
+//                                "/Build/Products/Debug-iphonesimulator/myFramework.framework"
+//                        defFile = file("/Users/test/Projects/KotlinQuiz/common/src/iosMain/cinterop/myFramework.def")
+//                    }
+//                }
+//            }
         }
     }
+
     sourceSets {
+
         commonMain {
             dependencies {
                 api 'org.jetbrains.kotlin:kotlin-stdlib-common'

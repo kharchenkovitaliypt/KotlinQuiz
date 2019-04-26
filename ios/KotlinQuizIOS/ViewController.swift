@@ -9,35 +9,51 @@
 import UIKit
 import CommonCode
 
+class Data {
+    var value: Int
+
+    init(value: Int) {
+        self.value = value
+    }
+}
+
+extension Data {
+
+    func process(item: NSNumber) -> KotlinUnit {
+        let oldValue = value
+        self.value += item.intValue
+        print("Data.process(item: \(item)) oldValue: \(oldValue), newValue: \(value)")
+        return KotlinUnit()
+    }
+}
+
 class ViewController: UIViewController {
     
     //MARK: Properties
-    @IBOutlet weak var question: UILabel!
-    @IBOutlet weak var totalPoints: UITextField!
-    @IBOutlet weak var input: UITextView!
+    @IBOutlet weak var questionView: UILabel!
+    @IBOutlet weak var totalPointsView: UITextField!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var nextBtn: UIButton!
     
     var selectedAnswer: OptAnswer?
-    
     var viewModel: QuizViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let data = MyData(value: 5)
-
-        print("MyData: \(data)")
-
-        SuspendJobKt.randomTextSample(sid: "12345")
+//        TestKt.runTest(sid: "12345")
         
         let quizService = QuizService(assetService: AssetService())
         self.viewModel = QuizViewModel(quizService: quizService)
-        
-        viewModel.totalPointsLiveData.observe {
-            self.totalPoints.text = "Total points: \($0)"
+
+        let data = Data(value: 48)
+        viewModel.totalPoints.observe(callback: data.process)
+
+        viewModel.totalPoints.observe {
+            self.totalPointsView.text = "Total points: \($0)"
             return KotlinUnit()
         }
-        viewModel.questionStateLiveData.observe {
+
+        viewModel.questionState.observe {
             let state = $0
             switch state {
             case let valueState as QuestionState.Value:
@@ -51,15 +67,15 @@ class ViewController: UIViewController {
     }
     
     func showQuestion(question: Question) {
-        self.question.text = question.text
+        self.questionView.text = question.text
         
         switch question {
         case is InputQuestion:
-            input.text = ""
+            textView.text = ""
         case let optQuestion as OptQuestion:
             let answers = optQuestion.answers
             selectedAnswer = answers.randomElement()!
-            input.text = answers
+            textView.text = answers
                 .map { "- " + $0.content + ($0 === selectedAnswer ? "*" : "") }
                 .joined(separator: "\n")
         default: break
@@ -67,18 +83,18 @@ class ViewController: UIViewController {
     }
     
     func showDone(totalPoints: Int64) {
-        self.totalPoints.center = self.view.center
-        self.input.isHidden = true
-        self.question.text = ""
+        self.totalPointsView.center = self.view.center
+        self.textView.isHidden = true
+        self.questionView.text = ""
         self.nextBtn.isHidden = true
     }
     
     //MARK: Actions
     @IBAction func onNext(_ sender: UIButton) {
-        let question = (viewModel!.questionStateLiveData.data as! QuestionState.Value).value
+        let question = (viewModel!.questionState.data as! QuestionState.Value).value
         switch question {
         case is InputQuestion:
-            if let text = input.text, !text.isEmpty {
+            if let text = textView.text, !text.isEmpty {
                 viewModel.processAnswer(answer: text)
             } else {
                 showAlert(msg: "Please input something")

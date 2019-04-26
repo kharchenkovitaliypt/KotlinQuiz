@@ -12,9 +12,10 @@ actual open class MutableLiveData<T> actual constructor(data: T?) {
     }
     private val callbackList = mutableListOf<(T) -> Unit>()
 
-    @Suppress("UNCHECKED_CAST")
     actual var data: T
+        @Suppress("UNCHECKED_CAST")
         get() = this._data as T
+
         set(value) {
             this._data = value
             this.isInitialized = true
@@ -24,7 +25,7 @@ actual open class MutableLiveData<T> actual constructor(data: T?) {
     fun observe(callback: (T) -> Unit) {
         callbackList += callback
         if (isInitialized) {
-            callback(data)
+            callback.invoke(data)
         }
     }
 }
