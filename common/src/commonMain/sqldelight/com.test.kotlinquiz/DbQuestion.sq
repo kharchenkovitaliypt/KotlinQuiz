@@ -1,13 +1,19 @@
+import com.test.kotlinquiz.Size;
 
-CREATE TABLE dbQuestion (
+CREATE TABLE DbQuestion (
   id TEXT NOT NULL PRIMARY KEY,
-  text TEXT NOT NULL
+  text TEXT NOT NULL,
+  size INTEGER AS Size
 );
 
 insert:
-INSERT INTO dbQuestion (id, text)
-VALUES (?, ?);
+INSERT INTO DbQuestion (id, text, size)
+VALUES (?, ?, ?);
 
 selectAll:
 SELECT *
-FROM dbQuestion;
+FROM DbQuestion;
+
+selectAllTest:
+SELECT text, CAST (size AS TEXT)
+FROM DbQuestion;
