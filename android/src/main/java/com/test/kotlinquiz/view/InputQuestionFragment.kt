@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_API_USAGE")
+
 package com.test.kotlinquiz.view
 
 import android.os.Bundle

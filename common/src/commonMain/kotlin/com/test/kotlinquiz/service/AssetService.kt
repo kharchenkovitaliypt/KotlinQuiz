@@ -1,6 +1,6 @@
 package com.test.kotlinquiz.service
 
-expect class AssetService {
+interface AssetService {
 
     suspend fun fetch(name: String): String
 }

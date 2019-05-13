@@ -17,12 +17,14 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         google()
         jcenter()
         maven { url "https://kotlin.bintray.com/kotlinx" }
         maven { url "https://dl.bintray.com/soywiz/soywiz" }
         maven { url 'https://dl.bintray.com/touchlabpublic/kotlin' }
         maven { url 'https://dl.bintray.com/florent37/maven' }
+        maven { url 'https://dl.bintray.com/spekframework/spek-dev' }
     }
 }
 

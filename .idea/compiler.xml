@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="common_androidMain" target="1.6" />
       <module name="common_androidTest" target="1.6" />
+      <module name="common_jvm1Main" target="1.6" />
+      <module name="common_jvm1Test" target="1.6" />
       <module name="common_jvmMain" target="1.6" />
       <module name="common_jvmTest" target="1.6" />
     </bytecodeTargetLevel>

@@ -9,9 +9,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.test.kotlinquiz.R
 
 fun FragmentManager.removeById(viewId: Int) {
-    findFragmentById(R.id.container)!!.let { fragment ->
-        transact { remove(fragment) }
-    }
+    transact { remove(findFragmentById(viewId)!!) }
 }
 
 fun FragmentManager.replace(viewId: Int, fragment: Fragment) {

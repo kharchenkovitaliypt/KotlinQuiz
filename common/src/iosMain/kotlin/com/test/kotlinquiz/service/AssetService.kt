@@ -5,9 +5,9 @@ import platform.Foundation.NSBundle
 import platform.Foundation.NSString
 import platform.Foundation.stringWithContentsOfFile
 
-actual class AssetService {
+class AssetServiceImpl : AssetService {
 
-    actual suspend fun fetch(name: String): String = suspendJob {
+    override suspend fun fetch(name: String): String = suspendJob {
         val path = NSBundle.mainBundle().pathForResource(name, null)
         NSString.stringWithContentsOfFile(path!!) as String
     }

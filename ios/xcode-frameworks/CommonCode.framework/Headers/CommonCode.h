@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@class CommonCodeDbQuestionImpl, CommonCodeSqldelight_runtimeQuery, CommonCodeKotlinUnit, CommonCodeSqldelight_runtimeTransacterTransaction, CommonCodeKotlinQuizDbCompanion, CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodeAssetService, CommonCodeQuestionImpl, CommonCodeDbService, CommonCodeMainDispatcher, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, NSObject, CommonCodeKotlinThrowable, CommonCodeKotlinDetachedObjectGraph, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinTransferMode, CommonCodeKotlinByteArray, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinByteIterator, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
+@class CommonCodeSize, CommonCodeDbQuestionAdapter, CommonCodeDbQuestionImpl, CommonCodeSqldelight_runtimeQuery, CommonCodeKotlinUnit, CommonCodeSqldelight_runtimeTransacterTransaction, CommonCodeKotlinQuizDbCompanion, CommonCodeSelectAllTestImpl, CommonCodeViewModel, CommonCodeCoroutineViewModel, CommonCodeMutableLiveData, CommonCodeQuizViewModel, CommonCodeQuizService, CommonCodePointsLiveData, CommonCodeQuestionStateLiveData, CommonCodeQuestionState, CommonCodeQuestionStateValue, CommonCodeQuestionStateDone, CommonCodeQuestionImpl, CommonCodeDbService, CommonCodeSizeColumnAdapter, CommonCodeAssetServiceImpl, CommonCodeMainDispatcher, CommonCodeKotlinx_coroutines_coreCoroutineDispatcher, CommonCodeKotlinAbstractCoroutineContextElement, CommonCodeAnswerResult, CommonCodeInputQuestionDto, CommonCodeInputQuestionDtoCompanion, CommonCodeInputQuestionDto$serializer, CommonCodeKotlinArray, CommonCodeOptQuestionDto, CommonCodeOptAnswerDto, CommonCodeOptQuestionDtoCompanion, CommonCodeOptQuestionDto$serializer, CommonCodeOptAnswerDtoCompanion, CommonCodeOptAnswerDto$serializer, NSObject, CommonCodeKotlinThrowable, CommonCodeKotlinDetachedObjectGraph, CommonCodeKotlinx_coroutines_coreCancellationException, CommonCodeKotlinx_serialization_runtime_nativeEnumDescriptor, CommonCodeKotlinx_serialization_runtime_nativeSerialKind, CommonCodeKotlinNothing, CommonCodeKotlinx_serialization_runtime_nativeUpdateMode, CommonCodeKotlinTransferMode, CommonCodeKotlinByteArray, CommonCodeKotlinIllegalStateException, CommonCodeKotlinRuntimeException, CommonCodeKotlinException, CommonCodeKotlinx_serialization_runtime_nativeSerialClassDescImpl, CommonCodeKotlinEnum, CommonCodeKotlinByteIterator, CommonCodeKotlinx_coroutines_coreAtomicDesc, CommonCodeKotlinx_coroutines_coreAtomicOp, CommonCodeKotlinx_coroutines_coreOpDescriptor;
 
-@protocol CommonCodeDbQuestion, CommonCodeDbQuestionQueries, CommonCodeSqldelight_runtimeTransacter, CommonCodeKotlinQuizDb, CommonCodeSqldelight_runtimeSqlDriver, CommonCodeSqldelight_runtimeSqlDriverSchema, CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeQuestion, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreDelay, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinx_coroutines_coreCancellableContinuation, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeSqldelight_runtimeSqlCursor, CommonCodeSqldelight_runtimeQueryListener, CommonCodeSqldelight_runtimeSqlPreparedStatement, CommonCodeSqldelight_runtimeCloseable, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
+@protocol CommonCodeDbQuestion, CommonCodeSqldelight_runtimeColumnAdapter, CommonCodeDbQuestionQueries, CommonCodeSqldelight_runtimeTransacter, CommonCodeKotlinQuizDb, CommonCodeSqldelight_runtimeSqlDriver, CommonCodeSqldelight_runtimeSqlDriverSchema, CommonCodeSelectAllTest, CommonCodeKotlinx_coroutines_coreCoroutineScope, CommonCodeKotlinCoroutineContext, CommonCodeKotlinx_coroutines_coreJob, CommonCodeOptAnswer, CommonCodeQuestion, CommonCodeAssetService, CommonCodeKotlinCoroutineContextElement, CommonCodeKotlinCoroutineContextKey, CommonCodeKotlinContinuationInterceptor, CommonCodeKotlinContinuation, CommonCodeKotlinx_coroutines_coreRunnable, CommonCodeKotlinx_coroutines_coreDelay, CommonCodeKotlinx_coroutines_coreDisposableHandle, CommonCodeKotlinx_coroutines_coreCancellableContinuation, CommonCodeAnswer, CommonCodeInputQuestion, CommonCodeKotlinx_serialization_runtime_nativeKSerializer, CommonCodeKotlinx_serialization_runtime_nativeGeneratedSerializer, CommonCodeKotlinx_serialization_runtime_nativeSerializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialDescriptor, CommonCodeKotlinx_serialization_runtime_nativeDeserializationStrategy, CommonCodeKotlinx_serialization_runtime_nativeDecoder, CommonCodeOptQuestion, CommonCodeSqldelight_runtimeSqlCursor, CommonCodeSqldelight_runtimeQueryListener, CommonCodeSqldelight_runtimeSqlPreparedStatement, CommonCodeSqldelight_runtimeCloseable, CommonCodeKotlinx_coroutines_coreChildHandle, CommonCodeKotlinx_coroutines_coreChildJob, CommonCodeKotlinSequence, CommonCodeKotlinx_coroutines_coreSelectClause0, CommonCodeKotlinIterator, CommonCodeKotlinx_serialization_runtime_nativeCompositeEncoder, CommonCodeKotlinx_serialization_runtime_nativeSerialModule, CommonCodeKotlinAnnotation, CommonCodeKotlinx_serialization_runtime_nativeCompositeDecoder, CommonCodeKotlinx_coroutines_coreParentJob, CommonCodeKotlinx_coroutines_coreSelectInstance, CommonCodeKotlinSuspendFunction0, CommonCodeKotlinx_serialization_runtime_nativeSerialModuleCollector, CommonCodeKotlinKClass, CommonCodeKotlinComparable, CommonCodeKotlinSuspendFunction, CommonCodeKotlinKDeclarationContainer, CommonCodeKotlinKAnnotatedElement, CommonCodeKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -146,15 +146,24 @@ __attribute__((swift_name("DbQuestion")))
 @required
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) NSString *text __attribute__((swift_name("text")));
+@property (readonly) CommonCodeSize * _Nullable size __attribute__((swift_name("size")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DbQuestionAdapter")))
+@interface CommonCodeDbQuestionAdapter : KotlinBase
+- (instancetype)initWithSizeAdapter:(id<CommonCodeSqldelight_runtimeColumnAdapter>)sizeAdapter __attribute__((swift_name("init(sizeAdapter:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) id<CommonCodeSqldelight_runtimeColumnAdapter> sizeAdapter __attribute__((swift_name("sizeAdapter")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DbQuestionImpl")))
 @interface CommonCodeDbQuestionImpl : KotlinBase <CommonCodeDbQuestion>
-- (instancetype)initWithId:(NSString *)id text:(NSString *)text __attribute__((swift_name("init(id:text:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id text:(NSString *)text size:(CommonCodeSize * _Nullable)size __attribute__((swift_name("init(id:text:size:)"))) __attribute__((objc_designated_initializer));
 - (NSString *)component1 __attribute__((swift_name("component1()")));
 - (NSString *)component2 __attribute__((swift_name("component2()")));
-- (CommonCodeDbQuestionImpl *)doCopyId:(NSString *)id text:(NSString *)text __attribute__((swift_name("doCopy(id:text:)")));
+- (CommonCodeSize * _Nullable)component3 __attribute__((swift_name("component3()")));
+- (CommonCodeDbQuestionImpl *)doCopyId:(NSString *)id text:(NSString *)text size:(CommonCodeSize * _Nullable)size __attribute__((swift_name("doCopy(id:text:size:)")));
 @end;
 
 __attribute__((swift_name("Sqldelight_runtimeTransacter")))
@@ -166,9 +175,11 @@ __attribute__((swift_name("Sqldelight_runtimeTransacter")))
 __attribute__((swift_name("DbQuestionQueries")))
 @protocol CommonCodeDbQuestionQueries <CommonCodeSqldelight_runtimeTransacter>
 @required
-- (CommonCodeSqldelight_runtimeQuery *)selectAllMapper:(id (^)(NSString *, NSString *))mapper __attribute__((swift_name("selectAll(mapper:)")));
+- (CommonCodeSqldelight_runtimeQuery *)selectAllMapper:(id (^)(NSString *, NSString *, CommonCodeSize * _Nullable))mapper __attribute__((swift_name("selectAll(mapper:)")));
 - (CommonCodeSqldelight_runtimeQuery *)selectAll __attribute__((swift_name("selectAll()")));
-- (void)insertId:(NSString *)id text:(NSString *)text __attribute__((swift_name("insert(id:text:)")));
+- (CommonCodeSqldelight_runtimeQuery *)selectAllTestMapper:(id (^)(NSString *, NSString *))mapper __attribute__((swift_name("selectAllTest(mapper:)")));
+- (CommonCodeSqldelight_runtimeQuery *)selectAllTest __attribute__((swift_name("selectAllTest()")));
+- (void)insertId:(NSString *)id text:(NSString *)text size:(CommonCodeSize * _Nullable)size __attribute__((swift_name("insert(id:text:size:)")));
 @end;
 
 __attribute__((swift_name("KotlinQuizDb")))
@@ -183,8 +194,31 @@ __attribute__((swift_name("KotlinQuizDbCompanion")))
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
-- (id<CommonCodeKotlinQuizDb>)invokeDriver:(id<CommonCodeSqldelight_runtimeSqlDriver>)driver __attribute__((swift_name("invoke(driver:)")));
+- (id<CommonCodeKotlinQuizDb>)invokeDriver:(id<CommonCodeSqldelight_runtimeSqlDriver>)driver DbQuestionAdapter:(CommonCodeDbQuestionAdapter *)DbQuestionAdapter __attribute__((swift_name("invoke(driver:DbQuestionAdapter:)")));
 @property (readonly) id<CommonCodeSqldelight_runtimeSqlDriverSchema> Schema __attribute__((swift_name("Schema")));
+@end;
+
+__attribute__((swift_name("SelectAllTest")))
+@protocol CommonCodeSelectAllTest
+@required
+@property (readonly) NSString *text __attribute__((swift_name("text")));
+@property (readonly) NSString *size __attribute__((swift_name("size")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SelectAllTestImpl")))
+@interface CommonCodeSelectAllTestImpl : KotlinBase <CommonCodeSelectAllTest>
+- (instancetype)initWithText:(NSString *)text size:(NSString *)size __attribute__((swift_name("init(text:size:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (CommonCodeSelectAllTestImpl *)doCopyText:(NSString *)text size:(NSString *)size __attribute__((swift_name("doCopy(text:size:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Size")))
+@interface CommonCodeSize : KotlinBase
+- (instancetype)initWithValue:(int64_t)value __attribute__((swift_name("init(value:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) int64_t value __attribute__((swift_name("value")));
 @end;
 
 __attribute__((swift_name("ViewModel")))
@@ -263,11 +297,9 @@ __attribute__((swift_name("QuestionStateLiveData")))
 @property CommonCodeQuestionState *data __attribute__((swift_name("data")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AssetService")))
-@interface CommonCodeAssetService : KotlinBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@protocol CommonCodeAssetService
+@required
 @end;
 
 __attribute__((swift_name("Question")))
@@ -293,10 +325,33 @@ __attribute__((swift_name("DbService")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
+__attribute__((swift_name("Sqldelight_runtimeColumnAdapter")))
+@protocol CommonCodeSqldelight_runtimeColumnAdapter
+@required
+- (id)decodeDatabaseValue:(id _Nullable)databaseValue __attribute__((swift_name("decode(databaseValue:)")));
+- (id _Nullable)encodeValue:(id)value __attribute__((swift_name("encode(value:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SizeColumnAdapter")))
+@interface CommonCodeSizeColumnAdapter : KotlinBase <CommonCodeSqldelight_runtimeColumnAdapter>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (CommonCodeSize *)decodeDatabaseValue:(CommonCodeLong *)databaseValue __attribute__((swift_name("decode(databaseValue:)")));
+- (CommonCodeLong *)encodeValue:(CommonCodeSize *)value __attribute__((swift_name("encode(value:)")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QuizService")))
 @interface CommonCodeQuizService : KotlinBase
-- (instancetype)initWithAssetService:(CommonCodeAssetService *)assetService __attribute__((swift_name("init(assetService:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithAssetService:(id<CommonCodeAssetService>)assetService __attribute__((swift_name("init(assetService:)"))) __attribute__((objc_designated_initializer));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AssetServiceImpl")))
+@interface CommonCodeAssetServiceImpl : KotlinBase <CommonCodeAssetService>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((swift_name("KotlinCoroutineContext")))
@@ -561,6 +616,12 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DbDriverKt")))
 @interface CommonCodeDbDriverKt : KotlinBase
 + (id<CommonCodeKotlinQuizDb>)createDb __attribute__((swift_name("createDb()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DbServiceKt")))
+@interface CommonCodeDbServiceKt : KotlinBase
++ (CommonCodeDbQuestionAdapter *)createDbQuestionAdapter __attribute__((swift_name("createDbQuestionAdapter()")));
 @end;
 
 __attribute__((swift_name("Sqldelight_runtimeQuery")))

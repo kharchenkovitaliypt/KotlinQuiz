@@ -12,7 +12,7 @@ import com.test.kotlinquiz.R
 import com.test.kotlinquiz.data.InputQuestion
 import com.test.kotlinquiz.data.OptQuestion
 import com.test.kotlinquiz.data.Question
-import com.test.kotlinquiz.service.AssetService
+import com.test.kotlinquiz.service.AssetServiceImpl
 import com.test.kotlinquiz.service.QuizService
 import com.test.kotlinquiz.viewmodel.QuestionState
 import com.test.kotlinquiz.viewmodel.QuizViewModel
@@ -81,5 +81,5 @@ private class QuizViewModelFactory(val assets: AssetManager) : ViewModelProvider
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T
-        = QuizViewModel(QuizService(AssetService(assets))) as T
+        = QuizViewModel(QuizService(AssetServiceImpl(assets))) as T
 }

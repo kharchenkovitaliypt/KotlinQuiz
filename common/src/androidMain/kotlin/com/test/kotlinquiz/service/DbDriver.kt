@@ -11,18 +11,6 @@ lateinit var appContext: Context
 
 actual fun createDb(): KotlinQuizDb {
     val driver = AndroidSqliteDriver(KotlinQuizDb.Schema, appContext, "quiz.db")
-    return KotlinQuizDb(driver, DbQuestion.Adapter(
-        sizeAdapter = SizeColumnAdapter()
-    ))
-}
-
-private class SizeColumnAdapter : ColumnAdapter<Size, Long> {
-
-    override fun decode(value: Long): Size {
-        return Size(value)
-    }
-    override fun encode(value: Size): Long {
-        return value.value
-    }
+    return KotlinQuizDb(driver, createDbQuestionAdapter())
 }
 
