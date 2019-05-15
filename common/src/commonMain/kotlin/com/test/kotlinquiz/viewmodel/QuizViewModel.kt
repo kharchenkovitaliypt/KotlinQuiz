@@ -12,11 +12,11 @@ class QuizViewModel(
 
     init {
         launch {
-            questionState.data = quizService.startQuiz().toState()
+            questionState.value(quizService.startQuiz().toState())
         }
     }
 
-    val totalPoints = PointsLiveData()
+    val totalPoints = PointsLiveData().apply { value(0) }
     val questionState = QuestionStateLiveData()
 
     fun processAnswer(answer: String) = processAnswer(answer as Any)
@@ -24,15 +24,15 @@ class QuizViewModel(
     fun processAnswer(answer: OptAnswer) = processAnswer(answer as Any)
 
     private fun processAnswer(answer: Any) = launch {
-        val question = (questionState.data as QuestionState.Value).value
+        val question = (questionState.getValue() as QuestionState.Value?)?.value ?: return@launch
         val result = quizService.processAnswer(question, answer)
 
-        totalPoints.data = result.totalPoints
+        totalPoints.value(result.totalPoints)
 
         if (result.nextQuestion != null) {
-            questionState.data = result.nextQuestion.toState()
+            questionState.value(result.nextQuestion.toState())
         } else {
-            questionState.data = QuestionState.Done(result.totalPoints)
+            questionState.value(QuestionState.Done(result.totalPoints))
         }
     }
 }
@@ -43,5 +43,5 @@ sealed class QuestionState {
 }
 fun Question.toState() = QuestionState.Value(this)
 
-class PointsLiveData : MutableLiveData<Points>(0)
+class PointsLiveData : MutableLiveData<Points>()
 class QuestionStateLiveData : MutableLiveData<QuestionState>()

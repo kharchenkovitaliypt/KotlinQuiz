@@ -1,31 +1,26 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.test.kotlinquiz.viewmodel
 
-actual open class MutableLiveData<T> actual constructor(data: T?) {
+actual open class MutableLiveData<T> {
 
-    private var _data: T? = null
     private var isInitialized = false
-    init {
-        data?.let {
-            this._data = it
-            this.isInitialized = true
-        }
-    }
+    private var value: T? = null
+
     private val callbackList = mutableListOf<(T) -> Unit>()
 
-    actual var data: T
-        @Suppress("UNCHECKED_CAST")
-        get() = this._data as T
+    actual fun setValue(value: T) {
+        this.value = value
+        this.isInitialized = true
+        callbackList.forEach { it(value) }
+    }
 
-        set(value) {
-            this._data = value
-            this.isInitialized = true
-            callbackList.forEach { it(value) }
-        }
+    actual fun getValue(): T? = value
 
     fun observe(callback: (T) -> Unit) {
         callbackList += callback
         if (isInitialized) {
-            callback.invoke(data)
+            callback.invoke(value as T)
         }
     }
 }

@@ -3,6 +3,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'com.squareup.sqldelight'
 
+// junit5 doesn't support android projects out of the box
+apply plugin: "de.mannodermaus.android-junit5"
+
 final frameworkName = 'CommonCode'
 
 sqldelight {
@@ -14,16 +17,33 @@ sqldelight {
 android {
     compileSdkVersion 28
 
+    defaultConfig {
+        minSdkVersion 17
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
+    }
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-
     packagingOptions {
-        exclude 'META-INF/LICENSE.md'
+        exclude "META-INF/LICENSE*"
         exclude 'META-INF/spek-dsl.kotlin_module'
+        exclude 'META-INF/atomicfu.kotlin_module'
         exclude 'META-INF/spek-runtime.kotlin_module'
-        exclude 'META-INF/LICENSE-notice.md'
+        exclude 'META-INF/kotlinx-coroutines-core.kotlin_module'
+    }
+    testOptions {
+        junitPlatform {
+            filters {
+                engines {
+                    include 'spek2'
+                }
+            }
+        }
+    }
+    sourceSets.each {
+        it.java.srcDirs += "src/$it.name/kotlin"
     }
 }
 
@@ -53,7 +73,6 @@ kotlin {
     }
 
     sourceSets {
-
         commonMain {
             dependencies {
                 implementation kotlin('stdlib-common')
@@ -67,13 +86,6 @@ kotlin {
 //                implementation "io.ktor:ktor-client-json:$ktor_version"
             }
         }
-        commonTest {
-            dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
-                implementation "org.spekframework.spek2:spek-dsl-metadata:$spek_version"
-            }
-        }
         androidMain {
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
@@ -83,17 +95,9 @@ kotlin {
                 implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
                 implementation "com.soywiz:klock-android:$klock_version"
                 implementation "com.squareup.sqldelight:android-driver:$sqldelight_version"
+
 //                implementation "io.ktor:ktor-client-android:$ktor_version"
 //                implementation "io.ktor:ktor-client-json-jvm:$ktor_version"
-            }
-        }
-        androidTest {
-            dependencies {
-                implementation kotlin('test')
-                implementation kotlin('test-junit')
-                implementation "org.spekframework.spek2:spek-dsl-jvm:$spek_version"
-                runtimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
-                runtimeOnly kotlin('reflect')
             }
         }
         iosMain {
@@ -108,6 +112,29 @@ kotlin {
 //                implementation "io.ktor:ktor-client-json-native:$ktor_version"
             }
         }
+
+        commonTest {
+            dependencies {
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
+                implementation "org.spekframework.spek2:spek-dsl-metadata:$spek_version"
+            }
+        }
+        androidTest {
+            dependencies {
+                implementation kotlin('test')
+                implementation kotlin('test-junit')
+                implementation "org.spekframework.spek2:spek-dsl-jvm:$spek_version"
+                runtimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
+                implementation 'org.jetbrains.kotlin:kotlin-reflect'
+
+                implementation "androidx.test:runner:1.1.1"
+                implementation "de.mannodermaus.junit5:android-test-core:1.0.0"
+                runtimeOnly "de.mannodermaus.junit5:android-test-runner:1.0.0"
+
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
+            }
+        }
     }
 }
 
@@ -119,6 +146,7 @@ tasks.withType(Test) {
 
 kotlin.sourceSets.all {
     languageSettings {
+        // For kotlinx.serialization
         useExperimentalAnnotation('kotlin.Experimental')
         progressiveMode = true // false by default
     }

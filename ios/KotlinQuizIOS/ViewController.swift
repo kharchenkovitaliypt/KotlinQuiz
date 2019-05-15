@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 //        TestKt.runTest(sid: "12345")
         
-        let quizService = QuizService(assetService: AssetService())
+        let quizService = QuizService(assetService: AssetServiceImpl())
         self.viewModel = QuizViewModel(quizService: quizService)
 
         let data = Data(value: 48)
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func onNext(_ sender: UIButton) {
-        let question = (viewModel!.questionState.data as! QuestionState.Value).value
+        let question = (viewModel!.questionState.value() as! QuestionState.Value).value
         switch question {
         case is InputQuestion:
             if let text = textView.text, !text.isEmpty {

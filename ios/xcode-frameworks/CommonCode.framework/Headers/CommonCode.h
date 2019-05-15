@@ -242,9 +242,11 @@ __attribute__((swift_name("CoroutineViewModel")))
 
 __attribute__((swift_name("MutableLiveData")))
 @interface CommonCodeMutableLiveData : KotlinBase
-- (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)setValueValue:(id _Nullable)value __attribute__((swift_name("setValue(value:)")));
+- (id _Nullable)getValue __attribute__((swift_name("getValue()")));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(id _Nullable))callback __attribute__((swift_name("observe(callback:)")));
-@property id _Nullable data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -282,9 +284,9 @@ __attribute__((swift_name("PointsLiveData")))
 @interface CommonCodePointsLiveData : CommonCodeMutableLiveData
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)setValueValue:(CommonCodeLong *)value __attribute__((swift_name("setValue(value:)")));
+- (CommonCodeLong * _Nullable)getValue __attribute__((swift_name("getValue()")));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(CommonCodeLong *))callback __attribute__((swift_name("observe(callback:)")));
-@property CommonCodeLong *data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -292,9 +294,9 @@ __attribute__((swift_name("QuestionStateLiveData")))
 @interface CommonCodeQuestionStateLiveData : CommonCodeMutableLiveData
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithData:(id _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)setValueValue:(CommonCodeQuestionState *)value __attribute__((swift_name("setValue(value:)")));
+- (CommonCodeQuestionState * _Nullable)getValue __attribute__((swift_name("getValue()")));
 - (void)observeCallback:(CommonCodeKotlinUnit *(^)(CommonCodeQuestionState *))callback __attribute__((swift_name("observe(callback:)")));
-@property CommonCodeQuestionState *data __attribute__((swift_name("data")));
 @end;
 
 __attribute__((swift_name("AssetService")))
@@ -561,6 +563,11 @@ __attribute__((swift_name("OptAnswerDto.$serializer")))
 - (CommonCodeOptAnswerDto *)deserializeDecoder:(id<CommonCodeKotlinx_serialization_runtime_nativeDecoder>)decoder __attribute__((swift_name("deserialize(decoder:)")));
 - (CommonCodeOptAnswerDto *)patchDecoder:(id<CommonCodeKotlinx_serialization_runtime_nativeDecoder>)decoder old:(CommonCodeOptAnswerDto *)old __attribute__((swift_name("patch(decoder:old:)")));
 - (void)serializeEncoder:(id<CommonCodeKotlinx_serialization_runtime_nativeEncoder>)encoder obj:(CommonCodeOptAnswerDto *)obj __attribute__((swift_name("serialize(encoder:obj:)")));
+@end;
+
+@interface CommonCodeMutableLiveData (Extensions)
+- (id _Nullable)value __attribute__((swift_name("value()")));
+- (void)valueValue:(id _Nullable)value __attribute__((swift_name("value(value:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-expect open class ViewModel() {
+expect abstract class ViewModel() {
     protected open fun onCleared()
 }
 
