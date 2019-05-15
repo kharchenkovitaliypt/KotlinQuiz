@@ -133,6 +133,7 @@ kotlin {
                 runtimeOnly "de.mannodermaus.junit5:android-test-runner:1.0.0"
 
                 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
+                implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
             }
         }
     }

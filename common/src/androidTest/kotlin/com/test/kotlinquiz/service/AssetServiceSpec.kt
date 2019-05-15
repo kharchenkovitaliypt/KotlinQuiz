@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.xdescribe
+import org.spekframework.spek2.style.specification.describe
 import kotlin.test.assertEquals
 
 private const val expectData = """{
@@ -20,7 +20,7 @@ object AssetServiceSpec: Spek({
         AssetServiceImpl(ctx.assets)
     }
 
-    xdescribe("AssetService") {
+    describe("AssetService") {
         it("should fetch asset by name") {
             runBlocking {
                 val actualData = assetService.fetch("test-data.json")

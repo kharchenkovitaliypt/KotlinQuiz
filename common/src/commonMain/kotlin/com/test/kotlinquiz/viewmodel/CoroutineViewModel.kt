@@ -5,10 +5,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-expect abstract class ViewModel() {
-    protected open fun onCleared()
-}
-
 open class CoroutineViewModel : ViewModel(), CoroutineScope {
 
     private val uiContext = mainDispatcher
