@@ -1,4 +1,5 @@
 import com.squareup.sqldelight.gradle.SqlDelightDatabase
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
@@ -42,7 +43,7 @@ kotlin {
         iosX64("ios") {
             binaries {
 
-                framework(extra["iosFrameworkName"] as String)
+                framework("CommonCode")
             }
 //            compilations.main {
 //                extraOpts "-Xobjc-generics"
@@ -154,6 +155,34 @@ afterEvaluate {
         tasks["kaptDebugAndroidTestKotlinAndroid"].outputs.files.files)
 }
 
+tasks.register<Sync>("packForXCode") {
+    val frameworkDir = File(projectDir.parent, "ios/xcode-frameworks")
+    val mode = project.findProperty("XCODE_CONFIGURATION")?.toString()?.toUpperCase() ?: "DEBUG"
+    val framework = (kotlin.targets["ios"] as KotlinNativeTarget)
+        .binaries.getFramework("CommonCode", mode)
+
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+
+    from(framework.outputFile.parentFile)
+    into(frameworkDir)
+
+    doLast {
+        File(frameworkDir, "gradlew").apply {
+            writeText(
+                """
+                #!/bin/bash
+                export "JAVA_HOME=${System.getProperty("java.home")}"
+                cd "${rootProject.rootDir}"
+                ./gradlew \$@
+                """)
+            setExecutable(true)
+        }
+    }
+}
+tasks.build {
+    dependsOn("packForXCode")
+}
 
 //kotlin.sourceSets.all {
 //    languageSettings.apply {
@@ -162,28 +191,4 @@ afterEvaluate {
 //        progressiveMode = true // false by default
 //    }
 //}
-
-//task packForXCode(type: Sync) {
-//    final File frameworkDir = new File(projectDir.parent, "ios/xcode-frameworks")
-//    final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: "DEBUG"
-//    final def framework = kotlin.targets.ios.binaries.getFramework(frameworkName, mode)
-//
-//    inputs.property "mode", mode
-//    dependsOn framework.linkTask
-//
-//    from { framework.outputFile.parentFile }
-//    into frameworkDir
-//
-//    doLast {
-//        new File(frameworkDir, "gradlew").with {
-//            text = "#!/bin/bash" +
-//                    "\nexport "JAVA_HOME=${System.getProperty("java.home")}"" +
-//                    "\ncd "${rootProject.rootDir}"" +
-//                    "\n./gradlew \$@" +
-//                    "\n"
-//            setExecutable(true)
-//        }
-//    }
-//}
-//tasks.build.dependsOn packForXCode
 
