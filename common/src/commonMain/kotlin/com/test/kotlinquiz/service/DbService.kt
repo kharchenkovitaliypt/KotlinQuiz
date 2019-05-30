@@ -4,15 +4,10 @@ import com.squareup.sqldelight.ColumnAdapter
 import com.test.kotlinquiz.DbQuestion
 import com.test.kotlinquiz.DbQuestionQueries
 import com.test.kotlinquiz.KotlinQuizDb
-import com.test.kotlinquiz.Size
+import com.test.kotlinquiz.data.Size
 import com.test.kotlinquiz.coroutines.suspendJob
 import com.test.kotlinquiz.data.ID
 import com.test.kotlinquiz.data.Question
-import com.test.kotlinquiz.thread.threadSleep
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 expect fun createDb(): KotlinQuizDb
 
@@ -45,10 +40,7 @@ fun createDbQuestionAdapter() = DbQuestion.Adapter(
 
 class SizeColumnAdapter : ColumnAdapter<Size, Long> {
 
-    override fun decode(databaseValue: Long): Size {
-        return Size(databaseValue)
-    }
-    override fun encode(value: Size): Long {
-        return value.value
-    }
+    override fun decode(databaseValue: Long)= Size(databaseValue)
+
+    override fun encode(value: Size): Long = value.value
 }

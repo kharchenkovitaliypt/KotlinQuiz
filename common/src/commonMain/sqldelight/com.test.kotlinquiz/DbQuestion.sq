@@ -1,4 +1,4 @@
-import com.test.kotlinquiz.Size;
+import com.test.kotlinquiz.data.Size;
 
 CREATE TABLE DbQuestion (
   id TEXT NOT NULL PRIMARY KEY,
