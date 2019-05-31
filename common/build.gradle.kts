@@ -1,5 +1,4 @@
 import com.squareup.sqldelight.gradle.SqlDelightDatabase
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
@@ -116,8 +115,8 @@ kotlin {
                 implementation(kotlin("test-junit"))
                 implementation(kotlin("reflect"))
 
-                implementation("androidx.test:runner:1.1.1")
-                implementation("androidx.test:core:1.1.0")
+                implementation("androidx.test:runner:1.2.0")
+                implementation("androidx.test:core:1.2.0")
 
                 implementation("org.spekframework.spek2:spek-dsl-jvm:${extra["spek_version"]}")
                 implementation ("org.spekframework.spek2:spek-runner-junit5:${extra["spek_version"]}") {
@@ -155,11 +154,18 @@ afterEvaluate {
         tasks["kaptDebugAndroidTestKotlinAndroid"].outputs.files.files)
 }
 
+kotlin.sourceSets.all {
+    languageSettings.apply {
+        // For kotlinx.serialization
+        useExperimentalAnnotation("kotlin.Experimental")
+        progressiveMode = true // false by default
+    }
+}
+
 tasks.register<Sync>("packForXCode") {
     val frameworkDir = File(projectDir.parent, "ios/xcode-frameworks")
     val mode = project.findProperty("XCODE_CONFIGURATION")?.toString()?.toUpperCase() ?: "DEBUG"
-    val framework = (kotlin.targets["ios"] as KotlinNativeTarget)
-        .binaries.getFramework("CommonCode", mode)
+    val framework = kotlin.iosX64("ios").binaries.getFramework("CommonCode", mode)
 
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
@@ -183,12 +189,4 @@ tasks.register<Sync>("packForXCode") {
 tasks.build {
     dependsOn("packForXCode")
 }
-
-//kotlin.sourceSets.all {
-//    languageSettings.apply {
-//        // For kotlinx.serialization
-//        useExperimentalAnnotation("kotlin.Experimental")
-//        progressiveMode = true // false by default
-//    }
-//}
 
