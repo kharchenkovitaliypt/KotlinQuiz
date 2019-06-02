@@ -33,6 +33,9 @@ android {
         exclude("META-INF/spek-runtime.kotlin_module")
         exclude("META-INF/kotlinx-coroutines-core.kotlin_module")
     }
+    sourceSets.forEach {
+        it.java.srcDir("src/${it.name}/kotlin")
+    }
 }
 
 kotlin {
@@ -119,7 +122,7 @@ kotlin {
                 implementation("androidx.test:core:1.2.0")
 
                 implementation("org.spekframework.spek2:spek-dsl-jvm:${extra["spek_version"]}")
-                implementation ("org.spekframework.spek2:spek-runner-junit5:${extra["spek_version"]}") {
+                implementation("org.spekframework.spek2:spek-runner-junit5:${extra["spek_version"]}") {
                     exclude(group = "io.github.classgraph", module = "classgraph")
                 }
 
@@ -129,29 +132,9 @@ kotlin {
                 implementation("org.junit.platform:junit-platform-launcher:1.4.2")
                 implementation("org.junit.platform:junit-platform-runner:1.4.2")
                 implementation("org.junit.vintage:junit-vintage-engine:5.4.2")
-
-                implementation(project(":common:spek-scanner:annotation"))
             }
         }
     }
-}
-
-/**
- * For Spek Framework
- */
-tasks.withType(Test::class) {
-    useJUnitPlatform()
-}
-dependencies {
-    "kaptAndroidTest"(project(":common:spek-scanner"))
-    "kaptTest"(project(":common:spek-scanner"))
-}
-afterEvaluate {
-    android.sourceSets["test"].java.srcDirs(
-        tasks["kaptDebugUnitTestKotlinAndroid"].outputs.files.files)
-
-    android.sourceSets["androidTest"].java.srcDirs(
-        tasks["kaptDebugAndroidTestKotlinAndroid"].outputs.files.files)
 }
 
 kotlin.sourceSets.all {
@@ -160,6 +143,10 @@ kotlin.sourceSets.all {
         useExperimentalAnnotation("kotlin.Experimental")
         progressiveMode = true // false by default
     }
+}
+
+tasks.withType(Test::class) {
+    useJUnitPlatform()
 }
 
 tasks.register<Sync>("packForXCode") {
@@ -177,11 +164,12 @@ tasks.register<Sync>("packForXCode") {
         File(frameworkDir, "gradlew").apply {
             writeText(
                 """
-                #!/bin/bash
-                export "JAVA_HOME=${System.getProperty("java.home")}"
-                cd "${rootProject.rootDir}"
-                ./gradlew \$@
-                """)
+            #!/bin/bash
+            export "JAVA_HOME=${System.getProperty("java.home")}"
+            cd "${rootProject.rootDir}"
+            ./gradlew \$@
+            """
+            )
             setExecutable(true)
         }
     }
@@ -189,4 +177,3 @@ tasks.register<Sync>("packForXCode") {
 tasks.build {
     dependsOn("packForXCode")
 }
-

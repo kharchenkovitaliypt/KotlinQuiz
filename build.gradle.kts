@@ -23,6 +23,7 @@ allprojects {
         maven(url = "https://dl.bintray.com/spekframework/spek-dev")
     }
 }
+
 tasks.register<Delete>("clean") {
     delete(rootProject.buildDir)
 }

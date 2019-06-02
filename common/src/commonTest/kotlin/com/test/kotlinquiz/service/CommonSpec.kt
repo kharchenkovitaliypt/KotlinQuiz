@@ -5,7 +5,7 @@ import kotlin.test.expect
 
 object CommonSpec: Spek({
 
-    test("3 + 2 = 5") {
+    test("should 3 + 2 = 5") {
         expect(5) { 3 + 2 }
     }
 })

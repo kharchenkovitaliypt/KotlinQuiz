@@ -1,5 +1,8 @@
+@file:Suppress("UNUSED_PARAMETER")
+
 package io.github.classgraph
 
+import com.test.kotlinquiz.service.specs
 import java.io.Closeable
 
 /**
