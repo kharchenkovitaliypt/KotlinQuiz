@@ -1,0 +1,19 @@
+import java.lang.Boolean;
+
+CREATE TABLE DbReminder(
+    id TEXT NOT NULL PRIMARY KEY,
+    photoUrl TEXT NOT NULL,
+    isDone INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    eventName TEXT NOT NULL,
+    createAt INTEGER NOT NULL
+);
+
+insert:
+INSERT INTO DbReminder (id, photoUrl, isDone, eventName, createAt)
+VALUES (?, ?, ?, ?, ?);
+
+selectAll:
+SELECT * FROM DbReminder;
+
+clearAll:
+DELETE FROM DbReminder;
