@@ -7,5 +7,5 @@ import com.test.kotlinquiz.KotlinQuizDb
 
 actual fun createDb(): KotlinQuizDb {
     val driver = NativeSqliteDriver(KotlinQuizDb.Schema, "quiz.db")
-    return KotlinQuizDb(driver, createDbQuestionAdapter()).freeze()
+    return KotlinQuizDb(driver, createDbQuestionAdapter(), createDbReminderAdapter()).freeze()
 }

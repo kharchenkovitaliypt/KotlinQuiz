@@ -26,10 +26,4 @@ class ReminderViewModel (
     private suspend fun getDoneTasks() =
         remindersList.setValue(reminderService.getDoneTasks())
 
-
-    fun deleteAllTasks() = launch {
-        reminderService.deleteAllTasks()
-
-        getDoneTasks()
-    }
 }

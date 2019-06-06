@@ -1,12 +1,10 @@
 package com.test.kotlinquiz.service
 
+import com.soywiz.klock.DateTime
 import com.squareup.sqldelight.ColumnAdapter
 import com.test.kotlinquiz.*
-import com.test.kotlinquiz.data.Size
 import com.test.kotlinquiz.coroutines.suspendJob
-import com.test.kotlinquiz.data.ID
-import com.test.kotlinquiz.data.Question
-import com.test.kotlinquiz.data.Reminder
+import com.test.kotlinquiz.data.*
 
 expect fun createDb(): KotlinQuizDb
 
@@ -17,10 +15,10 @@ data class QuestionImpl(
 
 data class ReminderImpl(
     override val id: ID,
-    override val photo: String,
+    override val photo: Uri?,
     override val isDone: Boolean,
     override val title: String,
-    override val createAt: Long
+    override val notifyTime: DateTime
 ) : Reminder
 
 class DbService {
@@ -40,7 +38,7 @@ class DbService {
     }
 
     suspend fun insertReminder(reminder: Reminder) = suspendJob {
-        reminderQueries.insert(reminder.id, reminder.photo, reminder.isDone, reminder.title, reminder.createAt)
+        reminderQueries.insert(reminder.id, reminder.photo.toString(), reminder.isDone, reminder.title, reminder.notifyTime)
     }
 
     suspend fun getReminders(): List<Reminder> = suspendJob {
@@ -56,10 +54,14 @@ class DbService {
 
 private fun toQuestion(item: DbQuestion) = QuestionImpl(item.id, item.text)
 
-private fun toReminder(item: DbReminder) = ReminderImpl(item.id, item.photoUrl, item.isDone, item.eventName, item.createAt)
+private fun toReminder(item: DbReminder) = ReminderImpl(item.id, item.photo, item.isDone, item.title, item.notifyTime)
 
 fun createDbQuestionAdapter() = DbQuestion.Adapter(
     sizeAdapter = SizeColumnAdapter()
+)
+
+fun createDbReminderAdapter() = DbReminder.Adapter(
+    notifyTimeAdapter = DateTimeColumnAdapter()
 )
 
 class SizeColumnAdapter : ColumnAdapter<Size, Long> {
@@ -67,4 +69,11 @@ class SizeColumnAdapter : ColumnAdapter<Size, Long> {
     override fun decode(databaseValue: Long)= Size(databaseValue)
 
     override fun encode(value: Size): Long = value.value
+}
+
+class DateTimeColumnAdapter : ColumnAdapter<DateTime, Long> {
+
+    override fun decode(databaseValue: Long) = DateTime(databaseValue)
+
+    override fun encode(value: DateTime): Long = value.unixMillisLong
 }

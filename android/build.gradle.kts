@@ -53,6 +53,7 @@ dependencies {
 
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.idapgroup:tnt:1.1.1")
+    implementation("androidx.work:work-runtime-ktx:2.1.0-alpha03")
 
     testImplementation("junit:junit:4.12")
 
