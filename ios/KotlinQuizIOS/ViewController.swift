@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  KotlinQuizIOS
-//
-//  Created by Vitaliy on 4/9/19.
-//  Copyright © 2019 Test. All rights reserved.
-//
-
 import UIKit
 import CommonCode
 

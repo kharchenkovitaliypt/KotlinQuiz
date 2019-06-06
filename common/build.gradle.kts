@@ -163,18 +163,17 @@ tasks.register<Sync>("packForXCode") {
 
     doLast {
         File(frameworkDir, "gradlew").apply {
-            writeText(
-                """
+            writeText("""
             #!/bin/bash
             export "JAVA_HOME=${System.getProperty("java.home")}"
             cd "${rootProject.rootDir}"
-            ./gradlew \$@
-            """
-            )
+            ./gradlew $@
+            """.trimIndent())
             setExecutable(true)
         }
     }
 }
+
 tasks.build {
     dependsOn("packForXCode")
 }
