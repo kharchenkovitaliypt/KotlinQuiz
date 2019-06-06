@@ -5,7 +5,7 @@ import com.test.kotlinquiz.DbQuestion
 import com.test.kotlinquiz.DbQuestionQueries
 import com.test.kotlinquiz.KotlinQuizDb
 import com.test.kotlinquiz.data.Size
-import com.test.kotlinquiz.coroutines.suspendJob
+import com.test.kotlinquiz.concurrency.suspendJob
 import com.test.kotlinquiz.data.ID
 import com.test.kotlinquiz.data.Question
 

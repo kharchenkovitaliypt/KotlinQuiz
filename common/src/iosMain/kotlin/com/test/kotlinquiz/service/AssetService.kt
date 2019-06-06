@@ -1,6 +1,6 @@
 package com.test.kotlinquiz.service
 
-import com.test.kotlinquiz.coroutines.suspendJob
+import com.test.kotlinquiz.concurrency.suspendJob
 import platform.Foundation.NSBundle
 import platform.Foundation.NSString
 import platform.Foundation.stringWithContentsOfFile

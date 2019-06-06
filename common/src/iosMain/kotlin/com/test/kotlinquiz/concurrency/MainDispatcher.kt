@@ -1,4 +1,4 @@
-package com.test.kotlinquiz.coroutines
+package com.test.kotlinquiz.concurrency
 
 import kotlinx.coroutines.*
 import platform.darwin.*

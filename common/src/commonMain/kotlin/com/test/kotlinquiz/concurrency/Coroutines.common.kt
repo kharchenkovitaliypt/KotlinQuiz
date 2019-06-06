@@ -1,4 +1,4 @@
-package com.test.kotlinquiz.coroutines
+package com.test.kotlinquiz.concurrency
 
 suspend inline fun <reified R> suspendJob(
     crossinline job: (Unit) -> R

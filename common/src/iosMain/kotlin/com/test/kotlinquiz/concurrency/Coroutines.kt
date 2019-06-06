@@ -1,8 +1,5 @@
-package com.test.kotlinquiz.coroutines
+package com.test.kotlinquiz.concurrency
 
-import com.test.kotlinquiz.thread.consumeOnMain
-import com.test.kotlinquiz.thread.detach
-import com.test.kotlinquiz.thread.doJob
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine

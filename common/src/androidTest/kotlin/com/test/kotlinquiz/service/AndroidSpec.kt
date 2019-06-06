@@ -6,8 +6,11 @@ import org.spekframework.spek2.style.specification.describe
 
 object AndroidSpec: Spek({
 
-    describe("TestCase") {
+    test("test something") {
 
+    }
+
+    describe("TestCase") {
         cit("should test something in coroutine") {
 
         }

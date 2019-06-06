@@ -1,4 +1,4 @@
-package com.test.kotlinquiz.thread
+package com.test.kotlinquiz.concurrency
 
 import platform.Foundation.NSThread
 

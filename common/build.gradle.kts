@@ -2,7 +2,6 @@ import com.squareup.sqldelight.gradle.SqlDelightDatabase
 
 plugins {
     kotlin("multiplatform")
-    kotlin("kapt")
     id("com.android.library")
     id("com.squareup.sqldelight")
     id("kotlinx-serialization")
@@ -44,7 +43,6 @@ kotlin {
 
         iosX64("ios") {
             binaries {
-
                 framework("CommonCode")
             }
 //            compilations.main {
@@ -132,6 +130,9 @@ kotlin {
                 implementation("org.junit.platform:junit-platform-launcher:1.4.2")
                 implementation("org.junit.platform:junit-platform-runner:1.4.2")
                 implementation("org.junit.vintage:junit-vintage-engine:5.4.2")
+
+                implementation("io.cucumber:cucumber-android:4.3.0")
+                implementation("io.cucumber:cucumber-picocontainer:4.3.0")
             }
         }
     }

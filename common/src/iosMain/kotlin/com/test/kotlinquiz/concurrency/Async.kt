@@ -1,4 +1,4 @@
-package com.test.kotlinquiz.thread
+package com.test.kotlinquiz.concurrency
 
 import kotlinx.cinterop.COpaquePointer
 import kotlinx.cinterop.staticCFunction
