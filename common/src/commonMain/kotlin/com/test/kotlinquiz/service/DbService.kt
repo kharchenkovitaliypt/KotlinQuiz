@@ -17,9 +17,9 @@ data class QuestionImpl(
 
 data class ReminderImpl(
     override val id: ID,
-    override val photoUrl: String,
+    override val photo: String,
     override val isDone: Boolean,
-    override val eventName: String,
+    override val title: String,
     override val createAt: Long
 ) : Reminder
 
@@ -40,7 +40,7 @@ class DbService {
     }
 
     suspend fun insertReminder(reminder: Reminder) = suspendJob {
-        reminderQueries.insert(reminder.id, reminder.photoUrl, reminder.isDone, reminder.eventName, reminder.createAt)
+        reminderQueries.insert(reminder.id, reminder.photo, reminder.isDone, reminder.title, reminder.createAt)
     }
 
     suspend fun getReminders(): List<Reminder> = suspendJob {

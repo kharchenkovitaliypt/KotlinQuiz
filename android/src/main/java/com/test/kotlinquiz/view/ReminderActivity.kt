@@ -6,27 +6,24 @@ import android.view.View
 import android.widget.CheckedTextView
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatCheckedTextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.idapgroup.tnt.takePhotoFromCamera
 import com.test.kotlinquiz.R
-import com.test.kotlinquiz.data.RemainderTasks
+import com.test.kotlinquiz.data.RemainderType
 import com.test.kotlinquiz.data.Reminder
-import com.test.kotlinquiz.service.ReminderImpl
 import com.test.kotlinquiz.service.ReminderService
 import com.test.kotlinquiz.thread.threadSleep
 import com.test.kotlinquiz.viewmodel.ReminderViewModel
 import com.test.kotlinquiz.viewmodel.observe
 import kotlinx.android.synthetic.main.activity_reminders.view.*
-import java.util.*
 
 class ReminderActivity : AppCompatActivity() {
     lateinit var viewModel: ReminderViewModel
 
     private val view: View get() = findViewById(android.R.id.content)
-    private var clickedView: String = ""
+    private lateinit var clickedReminder: Reminder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +39,6 @@ class ReminderActivity : AppCompatActivity() {
                 list.forEach { markTaskIsDone(it) }
             }
         }
-
 
         view.reminderField1.setOnClickListener { takePhoto(view.reminderField1.text.toString()) }
         view.reminderField2.setOnClickListener { takePhoto(view.reminderField2.text.toString()) }
@@ -76,34 +72,28 @@ class ReminderActivity : AppCompatActivity() {
         view.photo4.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_launcher_background))
     }
 
-    private fun takePhoto(id: String) { // must be actual
-        clickedView = id
+    private fun takePhoto(reminder: Reminder) { // must be actual
+        clickedReminder = reminder
         takePhotoFromCamera(::saveToDb)
     }
 
-    private fun saveToDb(imageUri: Uri) {
-        viewModel.saveDoneTask(ReminderImpl(
-            id = clickedView,
-            createAt = System.currentTimeMillis(),
-            eventName = clickedView,
-            isDone = true,
-            photoUrl = imageUri.toString()
-        ))
+    private fun saveToDb(image: Uri) {
+        viewModel.saveDoneTask(clickedReminder, image)
     }
 
     private fun saveViewState(reminder: Reminder, viewChecked: CheckedTextView, viewPhoto: ImageView) {
         viewChecked.isChecked = true
         viewChecked.isClickable = false
-        viewPhoto.setImageURI(Uri.parse(reminder.photoUrl))
+        viewPhoto.setImageURI(Uri.parse(reminder.photo))
         viewPhoto.isClickable = false
 
     }
 
     private fun setReminderTitle() { // must be actual
-        view.reminderField1.text = RemainderTasks.values()[0].getTitle()
-        view.reminderField2.text = RemainderTasks.values()[1].getTitle()
-        view.reminderField3.text = RemainderTasks.values()[2].getTitle()
-        view.reminderField4.text = RemainderTasks.values()[3].getTitle()
+        view.reminderField1.text = RemainderType.values()[0].getTitle()
+        view.reminderField2.text = RemainderType.values()[1].getTitle()
+        view.reminderField3.text = RemainderType.values()[2].getTitle()
+        view.reminderField4.text = RemainderType.values()[3].getTitle()
     }
 
     private fun deleteAll() {

@@ -52,9 +52,10 @@ dependencies {
 //    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
 
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
-
     implementation("com.idapgroup:tnt:1.1.1")
+
+    testImplementation("junit:junit:4.12")
+
+    androidTestImplementation("androidx.test:runner:1.2.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 }

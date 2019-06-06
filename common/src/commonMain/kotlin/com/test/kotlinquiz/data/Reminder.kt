@@ -1,9 +1,11 @@
 package com.test.kotlinquiz.data
 
+import com.soywiz.klock.DateTime
+
 interface Reminder {
     val id: ID
-    val photoUrl: String
+    val photo: Uri?
     val isDone: Boolean
-    val eventName: String
-    val createAt: Long
+    val title: String
+    val notifyTime: DateTime
 }
