@@ -2,7 +2,6 @@ import com.squareup.sqldelight.gradle.SqlDelightDatabase
 
 plugins {
     kotlin("multiplatform")
-    kotlin("kapt")
     id("com.android.library")
     id("com.squareup.sqldelight")
     id("kotlinx-serialization")
@@ -44,7 +43,6 @@ kotlin {
 
         iosX64("ios") {
             binaries {
-
                 framework("CommonCode")
             }
 //            compilations.main {
@@ -132,6 +130,9 @@ kotlin {
                 implementation("org.junit.platform:junit-platform-launcher:1.4.2")
                 implementation("org.junit.platform:junit-platform-runner:1.4.2")
                 implementation("org.junit.vintage:junit-vintage-engine:5.4.2")
+
+                implementation("io.cucumber:cucumber-android:4.3.0")
+                implementation("io.cucumber:cucumber-picocontainer:4.3.0")
             }
         }
     }
@@ -162,18 +163,17 @@ tasks.register<Sync>("packForXCode") {
 
     doLast {
         File(frameworkDir, "gradlew").apply {
-            writeText(
-                """
+            writeText("""
             #!/bin/bash
             export "JAVA_HOME=${System.getProperty("java.home")}"
             cd "${rootProject.rootDir}"
-            ./gradlew \$@
-            """
-            )
+            ./gradlew $@
+            """.trimIndent())
             setExecutable(true)
         }
     }
 }
+
 tasks.build {
     dependsOn("packForXCode")
 }

@@ -1,12 +1,11 @@
 package com.test.kotlinquiz
 
-import com.test.kotlinquiz.coroutines.suspendJob
-import com.test.kotlinquiz.thread.logThread
-import com.test.kotlinquiz.thread.mainDispatcher
-import com.test.kotlinquiz.thread.threadSleep
+import com.test.kotlinquiz.concurrency.suspendJob
+import com.test.kotlinquiz.concurrency.logThread
+import com.test.kotlinquiz.concurrency.mainDispatcher
+import com.test.kotlinquiz.concurrency.threadSleep
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 fun runTest(sid: String) {
 

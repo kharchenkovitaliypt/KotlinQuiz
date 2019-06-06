@@ -1,7 +1,7 @@
 package com.test.kotlinquiz.service
 
 import android.content.res.AssetManager
-import com.test.kotlinquiz.coroutines.suspendJob
+import com.test.kotlinquiz.concurrency.suspendJob
 
 class AssetServiceImpl (
     private val assetManager: AssetManager

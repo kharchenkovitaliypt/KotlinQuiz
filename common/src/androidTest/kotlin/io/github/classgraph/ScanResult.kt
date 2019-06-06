@@ -11,7 +11,7 @@ import java.io.Closeable
  */
 class ScanResult : Closeable, AutoCloseable {
 
-    fun getSubclasses(superclassName: String) =
+    fun getSubclasses(superclassName: String): ClassInfoList =
         specs.fold(ClassInfoList()) { list, clazz ->
             list += ClassInfo(clazz.java)
             list

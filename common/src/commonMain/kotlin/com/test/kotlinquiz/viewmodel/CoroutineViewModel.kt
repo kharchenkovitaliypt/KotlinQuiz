@@ -1,6 +1,6 @@
 package com.test.kotlinquiz.viewmodel
 
-import com.test.kotlinquiz.thread.mainDispatcher
+import com.test.kotlinquiz.concurrency.mainDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
