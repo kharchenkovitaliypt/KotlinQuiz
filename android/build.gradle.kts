@@ -21,10 +21,7 @@ android {
         }
     }
     packagingOptions {
-        exclude("META-INF/LICENSE.md")
-        exclude("META-INF/atomicfu.kotlin_module")
-        exclude("META-INF/kotlinx-io.kotlin_module")
-        exclude("META-INF/kotlinx-coroutines-core.kotlin_module")
+        exclude("META-INF/*")
     }
 }
 
