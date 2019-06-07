@@ -8,6 +8,6 @@ lateinit var appContext: Context
 
 actual fun createDb(): KotlinQuizDb {
     val driver = AndroidSqliteDriver(KotlinQuizDb.Schema, appContext, "quiz.db")
-    return KotlinQuizDb(driver, createDbQuestionAdapter(), createDbReminderAdapter())
+    return KotlinQuizDb(driver, createDbReminderAdapter())
 }
 

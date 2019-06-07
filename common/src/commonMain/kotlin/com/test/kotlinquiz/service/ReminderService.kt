@@ -1,43 +1,38 @@
 package com.test.kotlinquiz.service
 
-import com.test.kotlinquiz.DbReminder
 import com.test.kotlinquiz.KotlinQuizDb
-import com.test.kotlinquiz.coroutines.suspendJob
+import com.test.kotlinquiz.concurrency.suspendJob
 import com.test.kotlinquiz.data.Reminder
+import com.test.kotlinquiz.data.ReminderImpl
 import com.test.kotlinquiz.data.Uri
-import com.test.kotlinquiz.data.reminders
+import com.test.kotlinquiz.data.defaultReminders
 
 class ReminderService(private val db: KotlinQuizDb) {
 
-    private val dbService = DbService()
-
-    suspend fun saveDoneTask(reminder: Reminder, image: Uri) {
-        dbService.insertReminder(ReminderImpl(
+    suspend fun saveDoneTask(reminder: Reminder, image: Uri) = suspendJob {
+        db.dbReminderQueries.insert(
             id = reminder.id,
-            photo = image,
+            title = reminder.title,
             notifyTime = reminder.notifyTime,
-            isDone = true,
-            title = reminder.title
-        ))
+            photo = image,
+            isDone = true
+        )
     }
 
     suspend fun clearAllTasks() = suspendJob {
         db.dbReminderQueries.clearAll()
     }
 
-    suspend fun getDoneTasks(): List<Reminder> {
-        val list = db.dbReminderQueries.selectAll().executeAsList()
-        if (list.isEmpty()) {
-            db.transaction {
-                reminders.forEach {
-                    db.dbReminderQueries.insert(it.id, it.photo, it.isDone, it.title, it.notifyTime)
-                }
-            }
-            return reminders
+    suspend fun getDoneTasks(): List<Reminder> = suspendJob {
+        val list = db.dbReminderQueries.selectAll(::ReminderImpl).executeAsList()
+        if (list.isNotEmpty()) {
+            return@suspendJob list
         }
-
-        return list.map(::toReminder)
+        db.transaction {
+            defaultReminders.forEach {
+                db.dbReminderQueries.insert(it.id, it.photo, it.isDone, it.title, it.notifyTime)
+            }
+        }
+        return@suspendJob defaultReminders
     }
 }
-
-private fun toReminder(item: DbReminder) = ReminderImpl(item.id, item.photo, item.isDone, item.title, item.notifyTime)

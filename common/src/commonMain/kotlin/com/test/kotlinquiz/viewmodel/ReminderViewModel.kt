@@ -23,7 +23,7 @@ class ReminderViewModel (
         getDoneTasks()
     }
 
-    private suspend fun getDoneTasks() =
+    private suspend fun getDoneTasks() {
         remindersList.setValue(reminderService.getDoneTasks())
-
+    }
 }
