@@ -36,7 +36,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.0.2")
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("com.google.android.material:material:1.1.0-alpha06")
+    implementation("com.google.android.material:material:1.1.0-alpha07")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${extra["kotlinx_serialization_version"]}")

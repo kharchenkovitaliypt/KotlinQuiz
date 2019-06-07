@@ -43,7 +43,7 @@ class ReminderActivity : AppCompatActivity() {
     }
 
     private fun saveToDb(image: Uri) {
-        viewModel.saveDoneTask(clickedReminder, image.toString())
+        viewModel.saveDoneTask(clickedReminder, image)
     }
 }
 
