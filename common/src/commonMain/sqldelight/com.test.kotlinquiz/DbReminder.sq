@@ -1,4 +1,4 @@
-import com.soywiz.klock.DateTime;
+import com.soywiz.klock.TimeSpan;
 import java.lang.Boolean;
 
 CREATE TABLE DbReminder(
@@ -6,7 +6,7 @@ CREATE TABLE DbReminder(
     photo TEXT,
     isDone INTEGER AS Boolean DEFAULT 0 NOT NULL,
     title TEXT NOT NULL,
-    notifyTime INTEGER AS DateTime NOT NULL
+    notifyTime INTEGER AS TimeSpan NOT NULL
 );
 
 insert:

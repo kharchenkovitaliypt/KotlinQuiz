@@ -67,7 +67,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-io:${extra["kotlinx_io_version"]}")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${extra["kotlinx_serialization_version"]}")
 
-                implementation("com.soywiz:klock-metadata:${extra["klock_version"]}")
+                api("com.soywiz:klock-metadata:${extra["klock_version"]}")
 
 //                implementation "io.ktor:ktor-client-core:$ktor_version"
 //                implementation "io.ktor:ktor-client-json:$ktor_version"
@@ -81,7 +81,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${extra["kotlinx_serialization_version"]}")
 
                 implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
-                implementation("com.soywiz:klock-android:${extra["klock_version"]}")
+                api("com.soywiz:klock-android:${extra["klock_version"]}")
                 implementation("com.squareup.sqldelight:android-driver:${extra["sqldelight_version"]}")
 
 //                implementation "io.ktor:ktor-client-android:$ktor_version"

@@ -1,6 +1,6 @@
 package com.test.kotlinquiz.service
 
-import com.soywiz.klock.DateTime
+import com.soywiz.klock.TimeSpan
 import com.squareup.sqldelight.ColumnAdapter
 import com.test.kotlinquiz.*
 
@@ -10,9 +10,9 @@ fun createDbReminderAdapter() = DbReminder.Adapter(
     notifyTimeAdapter = DateTimeColumnAdapter()
 )
 
-class DateTimeColumnAdapter : ColumnAdapter<DateTime, Long> {
+class DateTimeColumnAdapter : ColumnAdapter<TimeSpan, Long> {
 
-    override fun decode(databaseValue: Long) = DateTime(databaseValue)
+    override fun decode(databaseValue: Long) = TimeSpan(databaseValue.toDouble())
 
-    override fun encode(value: DateTime): Long = value.unixMillisLong
+    override fun encode(value: TimeSpan): Long = value.millisecondsLong
 }
