@@ -26,11 +26,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     packagingOptions {
-        exclude("META-INF/LICENSE*")
-        exclude("META-INF/spek-dsl.kotlin_module")
-        exclude("META-INF/atomicfu.kotlin_module")
-        exclude("META-INF/spek-runtime.kotlin_module")
-        exclude("META-INF/kotlinx-coroutines-core.kotlin_module")
+        exclude("META-INF/*")
     }
     sourceSets.forEach {
         it.java.srcDir("src/${it.name}/kotlin")

@@ -1,9 +1,10 @@
 import com.soywiz.klock.TimeSpan;
+import com.test.kotlinquiz.data.Uri;
 import java.lang.Boolean;
 
 CREATE TABLE DbReminder(
     id TEXT NOT NULL PRIMARY KEY,
-    photo TEXT,
+    photo TEXT AS Uri,
     isDone INTEGER AS Boolean DEFAULT 0 NOT NULL,
     title TEXT NOT NULL,
     notifyTime INTEGER AS TimeSpan NOT NULL
