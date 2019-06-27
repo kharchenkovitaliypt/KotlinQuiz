@@ -2,7 +2,7 @@
 
 package com.test.kotlinquiz.viewmodel
 
-actual open class MutableLiveData<T> {
+actual open class MutableLiveData<T : Any> {
 
     private var isInitialized = false
     private var value: T? = null
@@ -20,7 +20,7 @@ actual open class MutableLiveData<T> {
     fun observe(callback: (T) -> Unit) {
         callbackList += callback
         if (isInitialized) {
-            callback.invoke(value as T)
+            callback.invoke(value!!)
         }
     }
 }

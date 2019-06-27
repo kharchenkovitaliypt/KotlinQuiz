@@ -11,11 +11,10 @@ class Data {
 
 extension Data {
 
-    func process(item: NSNumber) -> KotlinUnit {
+    func process(item: NSNumber) {
         let oldValue = value
         self.value += item.intValue
         print("Data.process(item: \(item)) oldValue: \(oldValue), newValue: \(value)")
-        return KotlinUnit()
     }
 }
 
@@ -40,13 +39,11 @@ class ViewController: UIViewController {
         let data = Data(value: 48)
         viewModel.totalPoints.observe(callback: data.process)
 
-        viewModel.totalPoints.observe {
-            self.totalPointsView.text = "Total points: \($0)"
-            return KotlinUnit()
+        viewModel.totalPoints.observe { points in
+            self.totalPointsView.text = "Total points: \(points)"
         }
 
-        viewModel.questionState.observe {
-            let state = $0
+        viewModel.questionState.observe { state in
             switch state {
             case let valueState as QuestionState.Value:
                 self.showQuestion(question: valueState.value)
@@ -54,7 +51,6 @@ class ViewController: UIViewController {
                 self.showDone(totalPoints: doneState.totalPoints)
             default: break
             }
-            return KotlinUnit()
         }
     }
     

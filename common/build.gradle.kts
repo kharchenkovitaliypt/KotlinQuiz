@@ -3,15 +3,15 @@ import com.squareup.sqldelight.gradle.SqlDelightDatabase
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.squareup.sqldelight")
+//    id("com.squareup.sqldelight")
     id("kotlinx-serialization")
 }
 
-sqldelight {
-    methodMissing("KotlinQuizDb", arrayOf(closureOf<SqlDelightDatabase> {
-        packageName = "com.test.kotlinquiz"
-    }))
-}
+//sqldelight {
+//    methodMissing("KotlinQuizDb", arrayOf(closureOf<SqlDelightDatabase> {
+//        packageName = "com.test.kotlinquiz"
+//    }))
+//}
 
 android {
     compileSdkVersion(28)
@@ -37,13 +37,17 @@ android {
     }
 }
 
+val frameworkName = "CommonCode"
+
 kotlin {
     targets {
         android()
 
         iosX64("ios") {
             binaries {
-                framework("CommonCode")
+                framework(frameworkName) {
+                    freeCompilerArgs.add("-Xobjc-generics")
+                }
             }
 //            compilations.main {
 //                extraOpts "-Xobjc-generics"
@@ -67,7 +71,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-io:${extra["kotlinx_io_version"]}")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${extra["kotlinx_serialization_version"]}")
 
-                implementation("com.soywiz:klock-metadata:${extra["klock_version"]}")
+                implementation("com.soywiz.korlibs.klock:klock:${extra["klock_version"]}")
 
 //                implementation "io.ktor:ktor-client-core:$ktor_version"
 //                implementation "io.ktor:ktor-client-json:$ktor_version"
@@ -81,8 +85,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${extra["kotlinx_serialization_version"]}")
 
                 implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
-                implementation("com.soywiz:klock-android:${extra["klock_version"]}")
-                implementation("com.squareup.sqldelight:android-driver:${extra["sqldelight_version"]}")
+//                implementation("com.squareup.sqldelight:android-driver:${extra["sqldelight_version"]}")
 
 //                implementation "io.ktor:ktor-client-android:$ktor_version"
 //                implementation "io.ktor:ktor-client-json-jvm:$ktor_version"
@@ -94,8 +97,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-io-native:${extra["kotlinx_io_version"]}")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${extra["kotlinx_serialization_version"]}")
 
-                implementation("com.soywiz:klock-iosx64:${extra["klock_version"]}")
-                implementation("com.squareup.sqldelight:ios-driver:${extra["sqldelight_version"]}")
+//                implementation("com.squareup.sqldelight:ios-driver:${extra["sqldelight_version"]}")
 
 //                implementation "io.ktor:ktor-client-ios:$ktor_version"
 //                implementation "io.ktor:ktor-client-ios-iosx64:$ktor_version"
@@ -153,7 +155,7 @@ tasks.withType(Test::class) {
 tasks.register<Sync>("packForXCode") {
     val frameworkDir = File(projectDir.parent, "ios/xcode-frameworks")
     val mode = project.findProperty("XCODE_CONFIGURATION")?.toString()?.toUpperCase() ?: "DEBUG"
-    val framework = kotlin.iosX64("ios").binaries.getFramework("CommonCode", mode)
+    val framework = kotlin.iosX64("ios").binaries.getFramework(frameworkName, mode)
 
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
@@ -171,7 +173,24 @@ tasks.register<Sync>("packForXCode") {
             """.trimIndent())
             setExecutable(true)
         }
+
+        val headerFile = File(frameworkDir, "$frameworkName.framework/Headers/$frameworkName.h")
+        fixFrameworkHeader(headerFile)
+
     }
+}
+
+fun fixFrameworkHeader(headerFile: File) {
+    val missedProtocols = listOf("CommonCodeKotlinCoroutineContextElement")
+
+    headerFile.readLines()
+        .toMutableList()
+        .apply {
+            val protocolsIndex = indexOfFirst { it.startsWith("@protocol") }
+            this[protocolsIndex + 1] += "@protocol ${missedProtocols.joinToString()}; // fix a temp kotlin compiler bug\n"
+        }
+        .joinToString("\n")
+        .let(headerFile::writeText)
 }
 
 tasks.build {

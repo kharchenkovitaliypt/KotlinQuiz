@@ -1,6 +1,0 @@
-framework module CommonCode {
-    umbrella header "CommonCode.h"
-
-    export *
-    module * { export * }
-}
